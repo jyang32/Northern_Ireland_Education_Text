@@ -52,7 +52,7 @@ pip install -r requirements.txt
 
 2. Run the processing pipeline:
 ```bash
-python scripts/main.py
+python -m scripts.main
 ```
 
 3. Check outputs in the `outputs/` directory for processed data.
