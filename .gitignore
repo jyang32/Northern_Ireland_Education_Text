@@ -7,5 +7,9 @@ data/
 
 .DS_Store
 
-outputs/
+# Ignore everything in outputs/
+outputs/*
+
+# keep the output csv for now
+!outputs/processed_text_data.csv
 

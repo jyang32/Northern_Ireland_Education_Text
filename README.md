@@ -64,3 +64,45 @@ python -m scripts.main
 - Large file chunking for analysis
 - Religious group categorization
 - Comprehensive metadata tracking
+- **URL content extraction**: For combined documents, automatically fetches and includes content from referenced URLs
+- **Content source tracking**: New `has_url_content` column indicates whether content includes fetched web resources
+
+## URL Processing
+
+The pipeline now includes advanced URL processing capabilities for combined documents:
+
+- **Automatic URL detection**: Extracts URLs from text using regex patterns
+- **Content fetching**: Downloads and processes web content using requests and BeautifulSoup
+- **Configurable limits**: Control character limits and timeouts via `config.py`
+- **Error handling**: Gracefully handles failed requests and network issues
+- **Rate limiting**: Includes delays between requests to be respectful to servers
+
+### Configuration
+
+URL processing can be configured in `scripts/config.py`:
+
+```python
+# URL processing parameters
+FETCH_URLS = True  # Whether to fetch content from URLs in combined documents
+MAX_URL_CHARS = 8000  # Maximum characters to extract from each URL
+URL_TIMEOUT = 15  # Timeout for URL requests in seconds
+```
+
+### Testing
+
+Run the URL processing test:
+
+```bash
+python test_url_processing.py
+```
+
+### Output Format
+
+The processed data CSV now includes a `has_url_content` column:
+
+- `True`: Content includes fetched web resources from URLs found in the document
+- `False`: Content is from the original document only
+
+This helps distinguish between:
+- **Original content**: Text directly from the source document
+- **Enhanced content**: Original text + fetched web resources (for combined documents with URLs)
