@@ -13,3 +13,5 @@ outputs/*
 # keep the output csv for now
 !outputs/processed_text_data.csv
 
+# ignore the test file
+test_url_processing.py
