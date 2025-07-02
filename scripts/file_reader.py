@@ -13,7 +13,8 @@ from .config import FILE_TYPES, RELIGIOUS_GROUPS, CHUNK_SIZE, MIN_CHUNK_LENGTH
 from .utils import (
     extract_clean_text, chunk_text, classify_file_type, 
     determine_religious_group, create_metadata_row,
-    preprocess_textbook, preprocess_policy, extract_teacher_answers, preprocess_combined
+    preprocess_textbook, preprocess_policy, extract_teacher_answers, preprocess_combined,
+    check_chunk_has_url_content
 )
 
 class FileReader:
@@ -68,6 +69,10 @@ class FileReader:
             return []
         file_type = classify_file_type(filepath.name, self.config['FILE_TYPES'])
         religious_group = determine_religious_group(filepath, self.config['RELIGIOUS_GROUPS'])
+        
+        # Initialize has_url_content for non-combined file types
+        has_url_content = False
+        
         # Use custom pre-processing for each file type
         if file_type == 'textbook':
             clean_text = preprocess_textbook(raw_text)
@@ -76,7 +81,11 @@ class FileReader:
         elif file_type == 'interview':
             clean_text = extract_teacher_answers(raw_text)
         elif file_type == 'combined':
-            clean_text = preprocess_combined(raw_text)
+            clean_text, url_contents_dict = preprocess_combined(
+                raw_text, 
+                fetch_urls=self.config.get('FETCH_URLS', True),
+                max_url_chars=self.config.get('MAX_URL_CHARS', 8000)
+            )
         else:
             clean_text = extract_clean_text(raw_text)
         # Handle large files by chunking
@@ -85,23 +94,35 @@ class FileReader:
             rows = []
             for i, chunk in enumerate(chunks):
                 if len(chunk) >= self.config['MIN_CHUNK_LENGTH']:
+                    # For combined files, check if this specific chunk has URL content
+                    chunk_has_url_content = False
+                    if file_type == 'combined' and 'url_contents_dict' in locals():
+                        chunk_has_url_content = check_chunk_has_url_content(chunk, url_contents_dict)
+                    
                     row = create_metadata_row(
                         filepath=filepath,
                         content=chunk,
                         file_type=file_type,
                         religious_group=religious_group,
-                        chunk_id=i
+                        chunk_id=i,
+                        has_url_content=chunk_has_url_content
                     )
                     row['chunk_count'] = len(chunks)
                     rows.append(row)
             logger.info(f"Chunked {filepath.name} into {len(rows)} chunks")
             return rows
         else:
+            # For non-chunked files, check if the entire content has URL content
+            file_has_url_content = False
+            if file_type == 'combined' and 'url_contents_dict' in locals():
+                file_has_url_content = check_chunk_has_url_content(clean_text, url_contents_dict)
+            
             row = create_metadata_row(
                 filepath=filepath,
                 content=clean_text,
                 file_type=file_type,
-                religious_group=religious_group
+                religious_group=religious_group,
+                has_url_content=file_has_url_content
             )
             return [row]
     

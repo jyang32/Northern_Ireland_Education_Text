@@ -3,8 +3,67 @@ import pandas as pd
 from pathlib import Path
 from typing import List, Dict, Any
 import logging
+import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+import time
 
 logger = logging.getLogger(__name__)
+
+# Headers for web scraping to avoid being blocked
+HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; Northern_Ireland_Education_Analysis/1.0)"}
+
+def fetch_url_content(url: str, max_chars: int = 8000, timeout: int = 15) -> str:
+    """
+    Fetch content from a URL and return cleaned text.
+    
+    Args:
+        url: URL to fetch
+        max_chars: Maximum characters to extract
+        timeout: Request timeout in seconds
+    
+    Returns:
+        Extracted text content or error message
+    """
+    try:
+        logger.info(f"Fetching content from: {url}")
+        resp = requests.get(url, headers=HEADERS, timeout=timeout)
+        resp.raise_for_status()
+        
+        soup = BeautifulSoup(resp.text, "html.parser")
+        
+        # Remove script and style elements
+        for script in soup(["script", "style"]):
+            script.decompose()
+        
+        # Get text content
+        text = soup.get_text(" ", strip=True)
+        
+        # Clean up the text
+        text = re.sub(r'\s+', ' ', text)
+        text = text[:max_chars]
+        
+        logger.info(f"Successfully extracted {len(text)} characters from {url}")
+        return text
+        
+    except Exception as exc:
+        error_msg = f"[Error fetching {url}: {exc}]"
+        logger.warning(error_msg)
+        return error_msg
+
+def extract_urls_from_text(text: str) -> List[str]:
+    """
+    Extract URLs from text using regex.
+    
+    Args:
+        text: Text to search for URLs
+    
+    Returns:
+        List of found URLs
+    """
+    url_pattern = r'https?://[^\s<>"{}|\\^`\[\]]+'
+    urls = re.findall(url_pattern, text)
+    return urls
 
 def extract_clean_text(text: str, remove_headers: bool = False, remove_bullet_points: bool = False) -> str:
     """
@@ -106,7 +165,8 @@ def determine_religious_group(filepath: Path, religious_groups: Dict[str, str]) 
         return 'unknown'
 
 def create_metadata_row(filepath: Path, content: str, file_type: str, 
-                       religious_group: str, chunk_id: int = None) -> Dict[str, Any]:
+                       religious_group: str, chunk_id: int = None, 
+                       has_url_content: bool = False) -> Dict[str, Any]:
     """
     Create a metadata row for the DataFrame.
     
@@ -116,20 +176,22 @@ def create_metadata_row(filepath: Path, content: str, file_type: str,
         file_type: Type of file
         religious_group: Religious group classification
         chunk_id: Chunk identifier (if text is chunked)
+        has_url_content: Whether the content includes fetched URL content
     
     Returns:
         Dictionary with metadata
     """
     return {
         'filename': filepath.name,
-        'filepath': str(filepath),
+        # 'filepath': str(filepath),
         'file_type': file_type,
         'religious_group': religious_group,
         'content': content,
         'content_length': len(content),
         'word_count': len(content.split()),
         'chunk_id': chunk_id,
-        'chunk_count': 1 if chunk_id is None else None
+        'chunk_count': 1 if chunk_id is None else None,
+        'has_url_content': has_url_content
     }
 
 def save_processed_data(data: List[Dict[str, Any]], output_path: Path, filename: str):
@@ -187,11 +249,74 @@ def extract_teacher_answers(text, teacher_label="Teacher"):
     return '\n'.join(teacher_text)
 
 # --- Combined type pre-processing ---
-def preprocess_combined(text):
+def preprocess_combined(text, fetch_urls: bool = True, max_url_chars: int = 8000):
+    """
+    Preprocess combined documents with optional URL content fetching.
+    
+    Args:
+        text: Text to preprocess
+        fetch_urls: Whether to fetch content from URLs found in text
+        max_url_chars: Maximum characters to extract from each URL
+    
+    Returns:
+        Tuple of (preprocessed_text, url_contents_dict)
+    """
+    # Extract URLs before removing them
+    urls = extract_urls_from_text(text) if fetch_urls else []
+    
+    # Basic preprocessing
     text = re.sub(r'^\s*(Q|A|Section|Part|Chapter|Unit)[\s\d\.:-]*\n', '', text, flags=re.MULTILINE | re.IGNORECASE)
     text = re.sub(r'\[IMAGE.*?\]', '', text, flags=re.IGNORECASE)
-    text = re.sub(r'https?://\S+', '', text) # removing the urls for now, can read in urls as a next step
+    text = re.sub(r'https?://\S+', '', text)  # Remove URLs from original text
     text = re.sub(r'\n\s*\n', '\n', text)
     text = re.sub(r'[ \t]+', ' ', text)
     text = text.strip()
-    return text
+    
+    # Store URL contents separately for per-chunk analysis
+    url_contents_dict = {}
+    
+    # Fetch URL content if requested
+    if fetch_urls and urls:
+        logger.info(f"Found {len(urls)} URLs in combined document")
+        
+        for i, url in enumerate(urls):
+            logger.info(f"Processing URL {i+1}/{len(urls)}: {url}")
+            content = fetch_url_content(url, max_chars=max_url_chars)
+            
+            if not content.startswith('[Error'):
+                url_contents_dict[url] = content
+            else:
+                url_contents_dict[url] = f"[Error fetching {url}: {content}]"
+            
+            # Add a small delay to be respectful to servers
+            time.sleep(1)
+        
+        # Append URL contents to the text with markers
+        if url_contents_dict:
+            url_sections = []
+            for i, (url, content) in enumerate(url_contents_dict.items(), 1):
+                if not content.startswith('[Error'):
+                    url_sections.append(f"\n\n--- URL Content {i}: {url} ---\n{content}")
+                else:
+                    url_sections.append(f"\n\n--- URL Error {i}: {url} ---\n{content}")
+            
+            text += "\n\n" + "\n".join(url_sections)
+    
+    return text, url_contents_dict
+
+def check_chunk_has_url_content(chunk_text: str, url_contents_dict: dict) -> bool:
+    """
+    Check if a chunk contains URL content by looking for URL markers.
+    
+    Args:
+        chunk_text: The text chunk to check
+        url_contents_dict: Dictionary of URL contents
+    
+    Returns:
+        True if chunk contains URL content, False otherwise
+    """
+    # Look for URL content markers in the chunk
+    for url in url_contents_dict.keys():
+        if f"--- URL Content" in chunk_text and url in chunk_text:
+            return True
+    return False

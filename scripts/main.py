@@ -4,8 +4,8 @@ from pathlib import Path
 import logging
 import pandas as pd
 
-# Add scripts directory to path
-sys.path.append(str(Path(__file__).parent))
+# Add parent directory to path for imports
+sys.path.append(str(Path(__file__).parent.parent))
 
 from scripts.config import *
 from scripts.file_reader import FileReader

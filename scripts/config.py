@@ -41,6 +41,11 @@ CHUNK_SIZE = 1000  # For text chunking
 MIN_CHUNK_LENGTH = 100  # Minimum chunk length
 MAX_CHUNK_LENGTH = 2000  # Maximum chunk length
 
+# URL processing parameters
+FETCH_URLS = True  # Whether to fetch content from URLs in combined documents
+MAX_URL_CHARS = 8000  # Maximum characters to extract from each URL
+URL_TIMEOUT = 15  # Timeout for URL requests in seconds
+
 # Output file names
 OUTPUT_FILES = {
     'processed_data': 'processed_text_data.csv',
