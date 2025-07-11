@@ -9,7 +9,7 @@ sys.path.append(str(Path(__file__).parent.parent))
 
 from scripts.config import *
 from scripts.file_reader import FileReader
-from scripts.utils import save_processed_data
+from scripts.utils import save_processed_data, load_metadata, match_metadata_to_data
 
 # Set up logging
 logging.basicConfig(
@@ -37,7 +37,14 @@ def main():
         'MIN_CHUNK_LENGTH': MIN_CHUNK_LENGTH,
         'CATHOLIC_DIR': CATHOLIC_DIR,
         'PROTESTANT_DIR': PROTESTANT_DIR,
-        'BOTH_DIR': BOTH_DIR
+        'BOTH_DIR': BOTH_DIR,
+        'FETCH_URLS': True,
+        'MAX_URL_CHARS': 8000,
+        'USE_OPENAI_FALLBACK': True,
+        'OPENAI_MODEL': 'gpt-4o-mini',
+        'MAX_AI_SUMMARY_CHARS': 2000,
+        'USE_AI_AGENT': True,
+        'AI_AGENT_MODEL': 'gpt-4o-mini'
     }
     
     reader = FileReader(config)
@@ -49,6 +56,17 @@ def main():
     if df.empty:
         logger.error("No data was processed. Check your file paths and file types.")
         return
+    
+    # Load and match metadata
+    logger.info("Loading metadata and matching to processed data...")
+    metadata_path = DATA_DIR / "metadata.csv"
+    metadata_df = load_metadata(metadata_path)
+    
+    if not metadata_df.empty:
+        df = match_metadata_to_data(df, metadata_df)
+        logger.info("Metadata matching completed")
+    else:
+        logger.warning("No metadata found, proceeding without metadata matching")
     
     # Save processed data
     logger.info("Saving processed data...")
@@ -62,6 +80,19 @@ def main():
     logger.info(f"Unique files: {df['filename'].nunique()}")
     logger.info(f"File types: {df['file_type'].value_counts().to_dict()}")
     logger.info(f"Religious groups: {df['religious_group'].value_counts().to_dict()}")
+    
+    # Print metadata matching summary
+    if 'publication_policy_year' in df.columns:
+        matched_count = df['publication_policy_year'].notna().sum()
+        logger.info(f"Records with publication-policy-year: {matched_count} out of {len(df)}")
+        if matched_count > 0:
+            years = df['publication_policy_year'].dropna().unique()
+            logger.info(f"Publication years found: {sorted(years)}")
+    
+    # Print AI summary information
+    if 'has_ai_summary' in df.columns:
+        ai_summary_count = df['has_ai_summary'].sum()
+        logger.info(f"Records with AI-generated summaries: {ai_summary_count} out of {len(df)}")
     
     # Print detailed breakdown
     logger.info("\n" + "="*50)
