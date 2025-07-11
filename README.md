@@ -140,10 +140,8 @@ The processed data CSV now includes two content tracking columns:
 
 This helps distinguish between:
 - Original content: Text directly from the source document
-- Live web content: Actually fetched from live websites using enhanced scraping
-- AI-summarized live content: AI summaries of live web content
+- Live web content: Actually fetched from live websites using web scraping
 - Knowledge-based summaries: AI summaries based on training data (when live access fails)
-- Enhanced content: Original text + web resources (live or AI-summarized)
 
 ### Content Labels
 
