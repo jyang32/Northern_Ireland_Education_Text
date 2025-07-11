@@ -65,14 +65,17 @@ python -m scripts.main
 - Religious group categorization
 - Comprehensive metadata tracking
 - URL content extraction: For combined documents, automatically fetches and includes content from referenced URLs
-- Content source tracking: The`has_url_content` column indicates whether content includes fetched web resources
+- AI fallback summarization: When URL fetching fails, uses OpenAI to generate summaries of the content
+- Content source tracking: The `has_url_content` and `has_ai_summary` columns indicate the source of content
 
-## URL Processing
+## URL Processing with AI Fallback
 
-The pipeline now includes advanced URL processing capabilities for combined documents:
+The pipeline includes URL processing capabilities for combined documents:
 
+- Raw Content Fetching: Uses enhanced web scraping to fetch live content from URLs
+- AI Knowledge-Based Fallback: When raw fetching fails, uses OpenAI to generate summaries based on training data
+- Educational Focus: AI summaries focus on Northern Ireland education and history relevance
 - Automatic URL detection: Extracts URLs from text using regex patterns
-- Content fetching: Downloads and processes web content using requests and BeautifulSoup
 - Configurable limits: Control character limits and timeouts via `config.py`
 - Error handling: Handles failed requests and network issues
 - Rate limiting: Includes delays between requests to be respectful to servers
@@ -83,10 +86,37 @@ URL processing can be configured in `scripts/config.py`:
 
 ```python
 # URL processing parameters
-FETCH_URLS = True  # Whether to fetch content from URLs in combined documents
+FETCH_URLS = False  # Set this to False to skip all URL processing
 MAX_URL_CHARS = 8000  # Maximum characters to extract from each URL
 URL_TIMEOUT = 15  # Timeout for URL requests in seconds
+
+# OpenAI fallback parameters
+USE_OPENAI_FALLBACK = False  # Set this to False to disable AI completely
+OPENAI_MODEL = "gpt-4o-mini"  # OpenAI model to use for summarization
+# OpenAI API key will be loaded from .env file or environment variable
+MAX_AI_SUMMARY_CHARS = 2000  # Maximum characters for AI-generated summaries
 ```
+
+### AI Fallback Setup
+
+To use the AI fallback functionality:
+
+1. Install the required libraries:
+```bash
+pip install openai python-dotenv
+```
+
+2. Set your OpenAI API key in the `.env` file:
+```bash
+# In your .env file
+OPENAI_API_KEY=your-api-key-here
+```
+
+3. The system will automatically:
+   - Try to fetch raw content from URLs using enhanced web scraping
+   - If raw fetching fails, use OpenAI to generate knowledge-based summaries
+   - Focus on Northern Ireland education and history relevance
+   - Provide summaries based on AI's training data about the domain
 
 ### Testing (test file currently ignored)
 
@@ -98,11 +128,38 @@ python test_url_processing.py
 
 ### Output Format
 
-The processed data CSV now includes a `has_url_content` column:
+The processed data CSV now includes two content tracking columns:
 
-- `True`: Content includes fetched web resources from URLs found in the document
-- `False`: Content is from the original document only
+- `has_url_content`: Indicates whether content includes fetched web resources
+  - `True`: Content includes fetched web resources from URLs found in the document
+  - `False`: Content is from the original document only
+
+- `has_ai_summary`: Indicates whether content includes AI-generated summaries
+  - `True`: Content includes AI-generated summaries (live content or knowledge-based)
+  - `False`: Content is from raw URL fetching or original document only
 
 This helps distinguish between:
 - Original content: Text directly from the source document
-- Enhanced content: Original text + fetched web resources (for combined documents with URLs)
+- Live web content: Actually fetched from live websites using enhanced scraping
+- AI-summarized live content: AI summaries of live web content
+- Knowledge-based summaries: AI summaries based on training data (when live access fails)
+- Enhanced content: Original text + web resources (live or AI-summarized)
+
+### Content Labels
+
+The system uses clear labels to identify content sources:
+- `[AI-GENERATED SUMMARY FROM KNOWLEDGE BASE]`: AI summary based on training data
+- `--- URL Content {i}: {url} ---`: Raw live web content
+- `--- AI SUMMARY {i}: {url} ---`: AI-generated summary
+
+### Content Flag Combinations
+
+The output CSV includes two content tracking columns that work together:
+
+| `has_url_content` | `has_ai_summary` | Content Type | Description |
+|-------------------|------------------|--------------|-------------|
+| `False` | `False` | Original document content only | Pure text from the source document, no URL content |
+| `True` | `False` | Raw URL content | Successfully fetched live web content from URLs |
+| `True` | `True` | AI-generated URL content | AI summaries generated when raw URL fetching failed |
+
+Note: When `has_ai_summary=True`, `has_url_content` will always be `True` because AI summaries are URL-derived content.

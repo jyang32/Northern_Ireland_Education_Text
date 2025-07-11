@@ -14,4 +14,8 @@ outputs/*
 !outputs/processed_text_data.csv
 
 # ignore the test file
-test_url_processing.py
+test_simplified_url_processing.py
+debug_file_reading.py
+
+# environemnt
+.env

@@ -46,6 +46,14 @@ FETCH_URLS = True  # Whether to fetch content from URLs in combined documents
 MAX_URL_CHARS = 8000  # Maximum characters to extract from each URL
 URL_TIMEOUT = 15  # Timeout for URL requests in seconds
 
+# OpenAI fallback parameters
+USE_OPENAI_FALLBACK = True  # Whether to use OpenAI when URL fetching fails
+OPENAI_MODEL = "gpt-4o-mini"  # OpenAI model to use for summarization
+# OpenAI API key will be loaded from .env file or environment variable
+MAX_AI_SUMMARY_CHARS = 2000  # Maximum characters for AI-generated summaries
+
+# AI Agent parameters removed - using simpler OpenAI approach
+
 # Output file names
 OUTPUT_FILES = {
     'processed_data': 'processed_text_data.csv',
