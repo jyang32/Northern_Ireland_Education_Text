@@ -135,7 +135,7 @@ The processed data CSV now includes two content tracking columns:
   - `False`: Content is from the original document only
 
 - `has_ai_summary`: Indicates whether content includes AI-generated summaries
-  - `True`: Content includes AI-generated summaries (live content or knowledge-based)
+  - `True`: Content includes AI-generated summaries (knowledge-based)
   - `False`: Content is from raw URL fetching or original document only
 
 This helps distinguish between:
