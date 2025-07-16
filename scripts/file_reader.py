@@ -14,7 +14,8 @@ from .utils import (
     extract_clean_text, chunk_text, classify_file_type, 
     determine_religious_group, create_metadata_row,
     preprocess_textbook, preprocess_policy, extract_teacher_answers, preprocess_combined,
-    check_chunk_has_url_content, check_chunk_has_ai_summary
+    check_chunk_has_url_content, check_chunk_has_ai_summary,
+    extract_source_urls_from_chunk
 )
 
 class FileReader:
@@ -109,6 +110,7 @@ class FileReader:
         has_url_content = False
         has_ai_summary = False
         url_contents_dict = {}
+        source_urls = ''  # Always define source_urls
         
         # Use custom pre-processing for each file type
         if file_type == 'textbook':
@@ -117,9 +119,8 @@ class FileReader:
             clean_text = preprocess_policy(raw_text)
         elif file_type == 'interview':
             clean_text = extract_teacher_answers(raw_text)
-
         elif file_type == 'combined':
-            clean_text, url_contents_dict, has_ai_summary = preprocess_combined(
+            clean_text, url_contents_dict, has_ai_summary, source_urls = preprocess_combined(
                 raw_text, 
                 fetch_urls=self.config.get('FETCH_URLS', True),
                 max_url_chars=self.config.get('MAX_URL_CHARS', 8000),
@@ -129,6 +130,7 @@ class FileReader:
             )
         else:
             clean_text = extract_clean_text(raw_text)
+            source_urls = ''
         
         # Handle large files by chunking
         if chunk_large_files and len(clean_text) > self.config['CHUNK_SIZE']:
@@ -173,14 +175,13 @@ class FileReader:
                     # Check if this specific chunk has URL content and AI summaries
                     chunk_has_url_content = False
                     chunk_has_ai_summary = False
-                    
+                    source_url = ''
                     if file_type == 'combined':
-                        # Check for URL content (including AI summaries)
                         chunk_has_url_content = check_chunk_has_url_content(chunk, url_contents_dict)
-                        
-                        # Check for AI summaries specifically
                         chunk_has_ai_summary = check_chunk_has_ai_summary(chunk)
-                    
+                        # Extract URLs for any URL content (raw or AI summary)
+                        if chunk_has_url_content:
+                            source_url = extract_source_urls_from_chunk(chunk, url_contents_dict)
                     row = create_metadata_row(
                         filepath=filepath,
                         content=chunk,
@@ -191,6 +192,7 @@ class FileReader:
                         has_ai_summary=chunk_has_ai_summary
                     )
                     row['chunk_count'] = len(chunks)
+                    row['source_url'] = source_url
                     rows.append(row)
             
             logger.info(f"Chunked {filepath.name} into {len(rows)} chunks")
@@ -212,6 +214,11 @@ class FileReader:
                 has_url_content=file_has_url_content,
                 has_ai_summary=file_has_ai_summary
             )
+            # For non-chunked files, also add ai_summary_url if relevant
+            source_url = ''
+            if file_type == 'combined' and file_has_url_content:
+                source_url = extract_source_urls_from_chunk(clean_text, url_contents_dict)
+            row['source_url'] = source_url
             return [row]
     
     # process a directory

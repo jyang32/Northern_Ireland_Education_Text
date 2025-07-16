@@ -438,10 +438,11 @@ def preprocess_combined(text, fetch_urls: bool = True, max_url_chars: int = 8000
         max_ai_chars: Maximum characters for AI-generated summaries
     
     Returns:
-        Tuple of (preprocessed_text, url_contents_dict, has_ai_summary)
+        Tuple of (preprocessed_text, url_contents_dict, has_ai_summary, source_urls)
     """
     # Extract URLs before removing them
     all_urls = extract_urls_from_text(text) if fetch_urls else []
+    source_urls = ",".join(all_urls) if all_urls else ""
     
     # Get unique URLs to avoid repeated fetching
     unique_urls = list(set(all_urls))
@@ -491,7 +492,7 @@ def preprocess_combined(text, fetch_urls: bool = True, max_url_chars: int = 8000
             
             text += "\n\n" + "\n".join(url_sections)
     
-    return text, url_contents_dict, has_ai_summary
+    return text, url_contents_dict, has_ai_summary, source_urls
 
 def check_chunk_has_url_content(chunk_text: str, url_contents_dict: dict) -> bool:
     """
@@ -539,3 +540,47 @@ def check_chunk_has_ai_summary(chunk_text: str) -> bool:
         if marker in chunk_text:
             return True
     return False
+
+def extract_ai_summary_urls_from_chunk(chunk_text: str, url_contents_dict: dict) -> str:
+    """
+    Extract URLs from a chunk that have AI-generated summaries.
+    Args:
+        chunk_text: The text chunk to check
+        url_contents_dict: Dictionary of URL contents
+    Returns:
+        Comma-separated string of URLs with AI summaries in this chunk, or empty string if none.
+    """
+    ai_markers = [
+        "--- AI SUMMARY",
+        "[AI-GENERATED SUMMARY FROM KNOWLEDGE BASE]",
+        "[AI-GENERATED SUMMARY FROM LIVE CONTENT]"
+    ]
+    matching_urls = []
+    for url, content in url_contents_dict.items():
+        # Only consider URLs where the content is an AI summary
+        if any(marker in content for marker in ai_markers):
+            # Check if this chunk contains both the marker and the URL
+            if any(marker in chunk_text for marker in ai_markers) and url in chunk_text:
+                matching_urls.append(url)
+    return ",".join(matching_urls)
+
+def extract_source_urls_from_chunk(chunk_text: str, url_contents_dict: dict) -> str:
+    """
+    Extract URLs from a chunk that contributed content (either raw or AI summary).
+    Args:
+        chunk_text: The text chunk to check
+        url_contents_dict: Dictionary of URL contents
+    Returns:
+        Comma-separated string of URLs present in this chunk, or empty string if none.
+    """
+    url_markers = [
+        "--- URL Content",
+        "--- AI SUMMARY",
+        "[AI-GENERATED SUMMARY FROM KNOWLEDGE BASE]",
+        "[AI-GENERATED SUMMARY FROM LIVE CONTENT]"
+    ]
+    matching_urls = []
+    for url in url_contents_dict.keys():
+        if url in chunk_text and any(marker in chunk_text for marker in url_markers):
+            matching_urls.append(url)
+    return ",".join(matching_urls)
