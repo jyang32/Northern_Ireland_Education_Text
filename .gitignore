@@ -19,3 +19,6 @@ debug_file_reading.py
 
 # environemnt
 .env
+
+# student work
+CS_student_work/*
