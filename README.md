@@ -51,12 +51,12 @@ Northern_Ireland_Education_Text/
 pip install -r requirements.txt
 ```
 
-1. Run the pipeline for reading and grouping raw data:
+2. Run the pipeline for reading and grouping raw data:
 ```bash
 python -m scripts.main
 ```
 
-1. Check outputs in the `outputs/` directory for processed data.
+3. Check outputs in the `outputs/` directory for processed data.
 
 ## URL Processing with AI Fallback
 
