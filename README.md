@@ -51,12 +51,12 @@ Northern_Ireland_Education_Text/
 pip install -r requirements.txt
 ```
 
-2. Run the processing pipeline:
+1. Run the pipeline for reading and grouping raw data:
 ```bash
 python -m scripts.main
 ```
 
-3. Check outputs in the `outputs/` directory for processed data.
+1. Check outputs in the `outputs/` directory for processed data.
 
 ## URL Processing with AI Fallback
 
@@ -146,3 +146,13 @@ The output CSV includes two content tracking columns that work together:
 | `True` | `True` | AI-generated URL content | AI summaries generated when raw URL fetching failed |
 
 Note: When `has_ai_summary=True`, `has_url_content`
+
+## Data Cleaning
+
+To clean the processed text data (lowercasing, stop word removal, lemmatization, etc.), run:
+
+```bash
+python scripts/preprocess.py
+```
+
+This will create a cleaned data file at `outputs/cleaned_text_data.csv` with an additional column `cleaned_content` containing the processed text.
