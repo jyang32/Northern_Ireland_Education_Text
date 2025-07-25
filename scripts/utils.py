@@ -424,7 +424,7 @@ def extract_teacher_answers(text, teacher_label="Teacher"):
 
 # --- Combined type pre-processing ---
 def preprocess_combined(text, fetch_urls: bool = True, max_url_chars: int = 8000, 
-                       use_ai_fallback: bool = True, openai_model: str = "gpt-4o-mini",
+                       use_ai_fallback: bool = False, openai_model: str = "gpt-4o-mini",
                        max_ai_chars: int = 2000):
     """
     Preprocess combined documents with optional URL content fetching and AI fallback.
@@ -483,7 +483,7 @@ def preprocess_combined(text, fetch_urls: bool = True, max_url_chars: int = 8000
         if url_contents_dict:
             url_sections = []
             for i, (url, content) in enumerate(url_contents_dict.items(), 1):
-                if content.startswith('[AI-GENERATED SUMMARY]'):
+                if content.startswith('[AI-GENERATED SUMMARY FROM KNOWLEDGE BASE]'):
                     url_sections.append(f"\n\n--- AI SUMMARY {i}: {url} ---\n{content}")
                 elif not content.startswith('[Error'):
                     url_sections.append(f"\n\n--- URL Content {i}: {url} ---\n{content}")
@@ -509,8 +509,7 @@ def check_chunk_has_url_content(chunk_text: str, url_contents_dict: dict) -> boo
     url_markers = [
         "--- URL Content",
         "--- AI SUMMARY", 
-        "[AI-GENERATED SUMMARY FROM KNOWLEDGE BASE]",
-        "[AI-GENERATED SUMMARY FROM LIVE CONTENT]"
+        "[AI-GENERATED SUMMARY FROM KNOWLEDGE BASE]"
     ]
     
     for url in url_contents_dict.keys():
@@ -532,8 +531,7 @@ def check_chunk_has_ai_summary(chunk_text: str) -> bool:
     # Look for AI summary markers in the chunk
     ai_markers = [
         "--- AI SUMMARY",
-        "[AI-GENERATED SUMMARY FROM KNOWLEDGE BASE]",
-        "[AI-GENERATED SUMMARY FROM LIVE CONTENT]"
+        "[AI-GENERATED SUMMARY FROM KNOWLEDGE BASE]"
     ]
     
     for marker in ai_markers:
@@ -552,8 +550,7 @@ def extract_ai_summary_urls_from_chunk(chunk_text: str, url_contents_dict: dict)
     """
     ai_markers = [
         "--- AI SUMMARY",
-        "[AI-GENERATED SUMMARY FROM KNOWLEDGE BASE]",
-        "[AI-GENERATED SUMMARY FROM LIVE CONTENT]"
+        "[AI-GENERATED SUMMARY FROM KNOWLEDGE BASE]"
     ]
     matching_urls = []
     for url, content in url_contents_dict.items():
@@ -576,8 +573,7 @@ def extract_source_urls_from_chunk(chunk_text: str, url_contents_dict: dict) -> 
     url_markers = [
         "--- URL Content",
         "--- AI SUMMARY",
-        "[AI-GENERATED SUMMARY FROM KNOWLEDGE BASE]",
-        "[AI-GENERATED SUMMARY FROM LIVE CONTENT]"
+        "[AI-GENERATED SUMMARY FROM KNOWLEDGE BASE]"
     ]
     matching_urls = []
     for url in url_contents_dict.keys():

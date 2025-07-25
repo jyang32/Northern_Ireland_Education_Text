@@ -40,7 +40,7 @@ def main():
         'BOTH_DIR': BOTH_DIR,
         'FETCH_URLS': True,
         'MAX_URL_CHARS': 8000,
-        'USE_OPENAI_FALLBACK': True,
+        'USE_OPENAI_FALLBACK': False,
         'OPENAI_MODEL': 'gpt-4o-mini',
         'MAX_AI_SUMMARY_CHARS': 2000,
         'USE_AI_AGENT': True,
@@ -117,7 +117,7 @@ def main():
     
     logger.info(f"\n=== PROCESSING COMPLETE ===")
     logger.info(f"Processed data saved to: {processed_data_file}")
-    logger.info("Ready for analysis in the next stage!")
+    logger.info("Ready for analysis in the next stage.")
 
 if __name__ == "__main__":
     main() 

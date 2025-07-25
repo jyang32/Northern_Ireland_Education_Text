@@ -18,10 +18,12 @@ Northern_Ireland_Education_Text/
 │       ├── catholic/
 │       │   ├── Madden (2011) CCEA revision guide Chp 3. Changing Relationships.docx
 │       │   ├── Doherty (2001) Northern Ireland since c.1960.docx
-│       │   └── ... (more textbooks)
+│       │   ├── TeacherA_catholic.docx
+│       │   └── ... (more textbooks and interviews)
 │       ├── protestant/
 │       │   ├── Madden (2007) History for CCEA GCSE Revision Guide - Chapter 3.docx
-│       │   └── ... (more textbooks)
+│       │   ├── TeacherB_protestant.docx
+│       │   └── ... (more textbooks and interviews)
 │       └── both/
 │           ├── Reconciled_interviews/
 │           │   ├── TeacherA_reconciled.docx
@@ -30,18 +32,17 @@ Northern_Ireland_Education_Text/
 │           └── GCSE History (2017)-specification-Standard.docx
 ├── outputs/
 │   └── processed_text_data.csv
-└── CS_student_work/                   # Additional student work
 ```
-- `catholic/`: All Catholic perspective documents (textbooks, etc.)
-- `protestant/`: All Protestant perspective documents (textbooks, etc.)
-- `both/`: All shared/interview/policy documents (e.g., teacher interviews, policy docs)
+- `catholic/`: All Catholic perspective documents (textbooks, teacher interviews, etc.)
+- `protestant/`: All Protestant perspective documents (textbooks, teacher interviews, etc.)
+- `both/`: All shared/interview/policy documents (e.g., reconciled teacher interviews, policy docs)
 
 ## Document Types
 
 - **Textbooks**: Educational materials by Madden, Doherty, Johnston
 - **Policy Documents**: GCSE Planning Frameworks and specifications
 - **Combined Resources**: Comprehensive resource collections
-- **Teacher Interviews**: Reconciled interview transcripts (under `both/`)
+- **Teacher Interviews**: Teacher interview transcripts (can be under `catholic/`, `protestant/`, or `both/`)
 
 ## Usage
 
@@ -56,17 +57,6 @@ python -m scripts.main
 ```
 
 3. Check outputs in the `outputs/` directory for processed data.
-
-## Data Processing Features
-
-- Automatic file type classification
-- Text cleaning and preprocessing
-- Large file chunking for analysis
-- Religious group categorization
-- Comprehensive metadata tracking
-- URL content extraction: For combined documents, automatically fetches and includes content from referenced URLs
-- AI fallback summarization: When URL fetching fails, uses OpenAI to generate summaries of the content
-- Content source tracking: The `has_url_content` and `has_ai_summary` columns indicate the source of content
 
 ## URL Processing with AI Fallback
 
@@ -138,11 +128,6 @@ The processed data CSV now includes two content tracking columns:
   - `True`: Content includes AI-generated summaries (knowledge-based)
   - `False`: Content is from raw URL fetching or original document only
 
-This helps distinguish between:
-- Original content: Text directly from the source document
-- Live web content: Actually fetched from live websites using web scraping
-- Knowledge-based summaries: AI summaries based on training data (when live access fails)
-
 ### Content Labels
 
 The system uses clear labels to identify content sources:
@@ -160,4 +145,4 @@ The output CSV includes two content tracking columns that work together:
 | `True` | `False` | Raw URL content | Successfully fetched live web content from URLs |
 | `True` | `True` | AI-generated URL content | AI summaries generated when raw URL fetching failed |
 
-Note: When `has_ai_summary=True`, `has_url_content` will always be `True` because AI summaries are URL-derived content.
+Note: When `has_ai_summary=True`, `has_url_content`
