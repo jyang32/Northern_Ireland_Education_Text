@@ -46,8 +46,9 @@ def preprocess_text(text):
     text = text.lower()
     # Tokenize
     tokens = word_tokenize(text)
-    # Remove punctuation and stopwords, lemmatize
-    tokens = [lemmatizer.lemmatize(word) for word in tokens if word.isalpha() and word not in stop_words]
+    # Remove punctuation, lemmatize, then remove stopwords
+    tokens = [lemmatizer.lemmatize(word) for word in tokens if word.isalpha()]
+    tokens = [word for word in tokens if word not in stop_words]
     return ' '.join(tokens)
 
 print('Preprocessing text...')
