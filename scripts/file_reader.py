@@ -276,15 +276,15 @@ class FileReader:
         """
         all_data = []
         
-        # Process Catholic files
+        # Process Option2 files
         if self.config['CATHOLIC_DIR'].exists():
-            catholic_data = self.process_directory(self.config['CATHOLIC_DIR'], chunk_large_files)
-            all_data.extend(catholic_data)
+            option2_data = self.process_directory(self.config['CATHOLIC_DIR'], chunk_large_files)
+            all_data.extend(option2_data)
         
-        # Process Protestant files
+        # Process Option1 files
         if self.config['PROTESTANT_DIR'].exists():
-            protestant_data = self.process_directory(self.config['PROTESTANT_DIR'], chunk_large_files)
-            all_data.extend(protestant_data)
+            option1_data = self.process_directory(self.config['PROTESTANT_DIR'], chunk_large_files)
+            all_data.extend(option1_data)
         
         # Process Both files
         if self.config['BOTH_DIR'].exists():

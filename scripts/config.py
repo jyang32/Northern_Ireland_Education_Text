@@ -9,8 +9,8 @@ OUTPUTS_DIR = BASE_DIR / "outputs"
 
 # Data structure paths
 STRAND1_DIR = DATA_DIR / "strand1"
-CATHOLIC_DIR = STRAND1_DIR / "catholic"
-PROTESTANT_DIR = STRAND1_DIR / "protestant"
+CATHOLIC_DIR = STRAND1_DIR / "option2"
+PROTESTANT_DIR = STRAND1_DIR / "option1"
 BOTH_DIR = STRAND1_DIR / "both"
 
 # File type mappings
@@ -31,8 +31,8 @@ CONTENT_CATEGORIES = {
 
 # Religious group mappings
 RELIGIOUS_GROUPS = {
-    'catholic': 'Catholic perspective',
-    'protestant': 'Protestant perspective', 
+    'option2': 'Option2 perspective',
+    'option1': 'Option1 perspective', 
     'both': 'Shared/neutral perspective'
 }
 

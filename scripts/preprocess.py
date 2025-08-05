@@ -42,8 +42,19 @@ lemmatizer = WordNetLemmatizer()
 def preprocess_text(text):
     if pd.isna(text):
         return ''
-    # Lowercase
+    
+    # Text normalization - replace specific terms before tokenization
     text = text.lower()
+    
+    # Replace "world war ii" with "second world war"
+    text = text.replace('world war ii', 'second world war')
+    text = text.replace('world war 2', 'second world war')
+    text = text.replace('wwii', 'second world war')
+    text = text.replace('ww2', 'second world war')
+    
+    # Replace "sinn fein" with "sinn féin" (proper Irish spelling)
+    text = text.replace('sinn fein', 'sinn féin')
+    
     # Tokenize
     tokens = word_tokenize(text)
     # Remove punctuation, lemmatize, then remove stopwords
