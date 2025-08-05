@@ -1,8 +1,4 @@
 http
-northern
-ireland
-irish
-ulster
 school
 teacher
 student
@@ -51,3 +47,10 @@ client url
 thing like
 would
 could
+was
+wa
+like
+em
+also
+northern
+ireland

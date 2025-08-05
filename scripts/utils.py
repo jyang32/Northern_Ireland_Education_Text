@@ -203,12 +203,12 @@ def extract_clean_text(text: str, remove_headers: bool = False, remove_bullet_po
 
 def chunk_text(text: str, chunk_size: int = 1000, overlap: int = 100) -> List[str]:
     """
-    Split text into overlapping chunks for analysis.
+    Split text into overlapping chunks for analysis, preserving word boundaries.
     
     Args:
         text: Text to chunk
-        chunk_size: Size of each chunk
-        overlap: Overlap between chunks
+        chunk_size: Target size of each chunk (in characters)
+        overlap: Overlap between chunks (in characters)
     
     Returns:
         List of text chunks
@@ -221,14 +221,29 @@ def chunk_text(text: str, chunk_size: int = 1000, overlap: int = 100) -> List[st
     
     while start < len(text):
         end = start + chunk_size
+        
+        # If we're at the end of the text, just take what's left
+        if end >= len(text):
+            chunk = text[start:].strip()
+            if chunk:  # Only add non-empty chunks
+                chunks.append(chunk)
+            break
+        
+        # Get the initial chunk
         chunk = text[start:end]
         
-        # Try to break at sentence boundary
-        if end < len(text):
-            last_period = chunk.rfind('.')
-            if last_period > chunk_size * 0.7:  # If period is in last 30% of chunk
-                chunk = chunk[:last_period + 1]
-                end = start + last_period + 1
+        # Try to break at sentence boundary first
+        last_period = chunk.rfind('.')
+        if last_period > chunk_size * 0.7:  # If period is in last 30% of chunk
+            chunk = chunk[:last_period + 1]
+            end = start + last_period + 1
+        else:
+            # If no good sentence boundary, try to break at word boundary
+            # Find the last space before the chunk end
+            last_space = chunk.rfind(' ')
+            if last_space > chunk_size * 0.5:  # If space is in second half of chunk
+                chunk = chunk[:last_space]
+                end = start + last_space
         
         chunks.append(chunk.strip())
         start = end - overlap
@@ -268,10 +283,10 @@ def determine_religious_group(filepath: Path, religious_groups: Dict[str, str]) 
     """
     path_str = str(filepath).lower()
     
-    if 'catholic' in path_str:
-        return 'catholic'
-    elif 'protestant' in path_str:
-        return 'protestant'
+    if 'option2' in path_str:
+        return 'option2'
+    elif 'option1' in path_str:
+        return 'option1'
     elif 'both' in path_str or 'reconciled' in path_str or 'interview' in path_str:
         return 'both'
     else:

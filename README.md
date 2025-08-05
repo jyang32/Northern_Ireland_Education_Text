@@ -1,6 +1,6 @@
 # Northern Ireland Education Text Analysis
 
-This project analyzes educational texts from Catholic and Protestant perspectives in Northern Ireland, comparing content across different document types including textbooks, policy documents, and teacher interviews.
+This project analyzes educational texts from Option2 and Option1 perspectives in Northern Ireland, comparing content across different document types including textbooks, policy documents, and teacher interviews.
 
 ## Project Structure
 
@@ -15,14 +15,14 @@ Northern_Ireland_Education_Text/
 │   └── main.py
 ├── data/
 │   └── strand1/
-│       ├── catholic/
+│       ├── option2/
 │       │   ├── Madden (2011) CCEA revision guide Chp 3. Changing Relationships.docx
 │       │   ├── Doherty (2001) Northern Ireland since c.1960.docx
-│       │   ├── TeacherA_catholic.docx
+│       │   ├── TeacherA_option2.docx
 │       │   └── ... (more textbooks and interviews)
-│       ├── protestant/
+│       ├── option1/
 │       │   ├── Madden (2007) History for CCEA GCSE Revision Guide - Chapter 3.docx
-│       │   ├── TeacherB_protestant.docx
+│       │   ├── TeacherB_option1.docx
 │       │   └── ... (more textbooks and interviews)
 │       └── both/
 │           ├── Reconciled_interviews/
@@ -33,8 +33,8 @@ Northern_Ireland_Education_Text/
 ├── outputs/
 │   └── processed_text_data.csv
 ```
-- `catholic/`: All Catholic perspective documents (textbooks, teacher interviews, etc.)
-- `protestant/`: All Protestant perspective documents (textbooks, teacher interviews, etc.)
+- `option2/`: All Option2 perspective documents (textbooks, teacher interviews, etc.)
+- `option1/`: All Option1 perspective documents (textbooks, teacher interviews, etc.)
 - `both/`: All shared/interview/policy documents (e.g., reconciled teacher interviews, policy docs)
 
 ## Document Types
@@ -42,7 +42,7 @@ Northern_Ireland_Education_Text/
 - **Textbooks**: Educational materials by Madden, Doherty, Johnston
 - **Policy Documents**: GCSE Planning Frameworks and specifications
 - **Combined Resources**: Comprehensive resource collections
-- **Teacher Interviews**: Teacher interview transcripts (can be under `catholic/`, `protestant/`, or `both/`)
+- **Teacher Interviews**: Teacher interview transcripts (can be under `option2/`, `option1/`, or `both/`)
 
 ## Usage
 
