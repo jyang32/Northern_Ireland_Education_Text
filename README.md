@@ -112,11 +112,6 @@ The pipeline includes URL processing capabilities for combined documents:
 
 - Raw Content Fetching: Uses enhanced web scraping to fetch live content from URLs
 - AI Knowledge-Based Fallback: When raw fetching fails, uses OpenAI to generate summaries based on training data
-- Educational Focus: AI summaries focus on Northern Ireland education and history relevance
-- Automatic URL detection: Extracts URLs from text using regex patterns
-- Configurable limits: Control character limits and timeouts via `config.py`
-- Error handling: Handles failed requests and network issues
-- Rate limiting: Includes delays between requests to be respectful to servers
 
 ### Configuration
 
@@ -193,4 +188,4 @@ The output CSV includes two content tracking columns that work together:
 | `True` | `False` | Raw URL content | Successfully fetched live web content from URLs |
 | `True` | `True` | AI-generated URL content | AI summaries generated when raw URL fetching failed |
 
-Note: When `has_ai_summary=True`, `has_url_content` is always True.
+Note: When `has_ai_summary=True`, `has_url_content` is always `True`.
