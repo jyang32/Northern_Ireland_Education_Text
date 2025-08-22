@@ -1,6 +1,6 @@
 # Northern Ireland Education Text Analysis
 
-This project analyzes educational texts from Option2 and Option1 perspectives in Northern Ireland, comparing content across different document types including textbooks, policy documents, and teacher interviews.
+This project performs comprehensive analysis of educational texts from Option2 and Option1 perspectives in Northern Ireland, including content analysis, topic modeling with BERTopic, and sentiment analysis using OpenAI. The analysis compares content across different document types including textbooks, policy documents, and teacher interviews.
 
 ## Project Structure
 
@@ -26,8 +26,7 @@ Northern_Ireland_Education_Text/
 │       │   └── ... (more textbooks and interviews)
 │       └── both/
 │           ├── Reconciled_interviews/
-│           │   ├── TeacherA_reconciled.docx
-│           │   ├── TeacherB_reconciled.docx
+│           │   ├── TeacherF_reconciled.docx
 │           │   └── ... (more interviews)
 │           └── GCSE History (2017)-specification-Standard.docx
 ├── outputs/
@@ -44,19 +43,68 @@ Northern_Ireland_Education_Text/
 - **Combined Resources**: Comprehensive resource collections
 - **Teacher Interviews**: Teacher interview transcripts (can be under `option2/`, `option1/`, or `both/`)
 
-## Usage
+## Quick Start for New Users
 
-1. Install dependencies:
+### 1. Environment Setup
+
+This project uses conda for dependency management. Follow these steps to set up your environment:
+
 ```bash
-pip install -r requirements.txt
+# Clone or download the project
+cd Northern_Ireland_Education_Text
+
+# Create the conda environment (recommended)
+conda env create -f environment.yml
+
+# Activate the environment
+conda activate bertopic_env
+
 ```
 
-2. Run the pipeline for reading and grouping raw data:
+### 2. OpenAI API Setup (for Sentiment Analysis)
+
+To use sentiment analysis features, you'll need an OpenAI API key:
+
+1. Get an API key from [OpenAI](https://platform.openai.com/api-keys)
+2. Create a `.env` file in the project root:
 ```bash
+# In your .env file
+OPENAI_API_KEY=your_actual_api_key_here
+```
+
+### 3. Running the Analysis Pipeline
+
+#### Step 1: Process Raw Data
+```bash
+# Read and process raw documents
 python -m scripts.main
+
+# Clean and preprocess text
+python scripts/preprocess.py
+```
+#### Step 2: Descriptive Analysis
+```bash
+# Generate descriptive statistics
+jupyter notebook analysis/descriptives.ipynb
+```
+#### Step 3: Topic Modeling
+```bash
+# Run Jupyter notebook for topic analysis
+jupyter notebook analysis/BERTopic.ipynb
 ```
 
-3. Check outputs in the `outputs/` directory for processed data.
+#### Step 4: Sentiment Analysis
+```bash
+# Run sentiment analysis on key terms
+jupyter notebook analysis/sentiment.ipynb
+```
+
+### 4. Output Files
+
+Your analysis will generate:
+- `outputs/processed_text_data.csv` - Processed document data
+- `outputs/cleaned_text_data.csv` - Cleaned text for analysis
+- `outputs/analysis_results/` - Topic modeling results and visualizations; Sentiment analysis results
 
 ## URL Processing with AI Fallback
 
@@ -64,11 +112,6 @@ The pipeline includes URL processing capabilities for combined documents:
 
 - Raw Content Fetching: Uses enhanced web scraping to fetch live content from URLs
 - AI Knowledge-Based Fallback: When raw fetching fails, uses OpenAI to generate summaries based on training data
-- Educational Focus: AI summaries focus on Northern Ireland education and history relevance
-- Automatic URL detection: Extracts URLs from text using regex patterns
-- Configurable limits: Control character limits and timeouts via `config.py`
-- Error handling: Handles failed requests and network issues
-- Rate limiting: Includes delays between requests to be respectful to servers
 
 ### Configuration
 
@@ -145,14 +188,4 @@ The output CSV includes two content tracking columns that work together:
 | `True` | `False` | Raw URL content | Successfully fetched live web content from URLs |
 | `True` | `True` | AI-generated URL content | AI summaries generated when raw URL fetching failed |
 
-Note: When `has_ai_summary=True`, `has_url_content`
-
-## Data Cleaning
-
-To clean the processed text data (lowercasing, stop word removal, lemmatization, etc.), run:
-
-```bash
-python scripts/preprocess.py
-```
-
-This will create a cleaned data file at `outputs/cleaned_text_data.csv` with an additional column `cleaned_content` containing the processed text.
+Note: When `has_ai_summary=True`, `has_url_content` is always `True`.

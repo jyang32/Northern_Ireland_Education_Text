@@ -10,7 +10,7 @@ conda env create -f environment.yml
 conda activate bertopic_env
 
 # Verify installation
-python -c "import bertopic, sentence_transformers, datamapplot; print('✅ All packages imported successfully!')"
+python -c "import bertopic, sentence_transformers, datamapplot, langchain, langchain_openai; print('✅ All packages imported successfully!')"
 ```
 
 ## Alternative: Update Existing Environment
@@ -34,6 +34,9 @@ conda env create -f environment.yml -n bertopic_env_new
 - **UMAP**: 0.5.9.post2
 - **HDBSCAN**: 0.8.40
 - **DataMapPlot**: 0.6.3
+- **OpenAI**: 1.99.0
+- **LangChain**: 0.3.20
+- **LangChain-OpenAI**: 0.3.18
 
 ## Troubleshooting
 
