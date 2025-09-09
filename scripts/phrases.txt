@@ -1,0 +1,57 @@
+# Phrases to preserve during tokenization
+# These phrases will be treated as single tokens and not split
+# One phrase per line, case-insensitive matching
+
+# Political figures
+éamon de valera
+de valera
+ian paisley
+brian faulkner
+terence o'neill
+james craig
+
+# Political organizations
+sinn féin
+sinn fein
+ira
+provisional ira
+official ira
+ulster volunteer force
+ulster defence association
+democratic unionist party
+social democratic labour party
+
+# Historical events
+easter rising
+bloody sunday
+good friday agreement
+anglo irish agreement
+sunningdale agreement
+hunger strike
+hunger strikes
+civil rights movement
+battle of the somme
+
+# Places and terms
+# northern ireland
+irish free state
+republic of ireland
+united kingdom
+belfast agreement
+stormont parliament
+westminster parliament
+
+# Educational terms
+world war ii
+second world war
+world war one
+first world war
+home rule
+direct rule
+power sharing
+
+# Religious/sectarian terms
+roman catholic
+catholic church
+protestant unionist
+orange order

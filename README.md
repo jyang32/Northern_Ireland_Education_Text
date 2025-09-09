@@ -7,30 +7,72 @@ This project performs comprehensive analysis of educational texts from Option2 a
 ```
 Northern_Ireland_Education_Text/
 ├── README.md
-├── requirements.txt
+├── environment.yml
+├── environment_setup.md
 ├── scripts/
 │   ├── config.py
 │   ├── utils.py
 │   ├── file_reader.py
-│   └── main.py
+│   ├── main.py
+│   ├── preprocess.py
+│   ├── stopwords.txt
+│   └── phrases.txt
+├── analysis/
+│   ├── BERTopic.ipynb
+│   ├── descriptives.ipynb
+│   ├── descriptives_no_interview.ipynb
+│   └── sentiment.ipynb
 ├── data/
+│   ├── metadata.csv
 │   └── strand1/
-│       ├── option2/
-│       │   ├── Madden (2011) CCEA revision guide Chp 3. Changing Relationships.docx
-│       │   ├── Doherty (2001) Northern Ireland since c.1960.docx
-│       │   ├── TeacherA_option2.docx
-│       │   └── ... (more textbooks and interviews)
+│       ├── both/
+│       │   ├── GCSE History (2017)-specification-Standard.docx
+│       │   └── Reconciled_interviews/
+│       │       ├── TeacherF_reconciled.docx
+│       │       └── TeacherI_reconciled.docx
 │       ├── option1/
-│       │   ├── Madden (2007) History for CCEA GCSE Revision Guide - Chapter 3.docx
-│       │   ├── TeacherB_option1.docx
-│       │   └── ... (more textbooks and interviews)
-│       └── both/
-│           ├── Reconciled_interviews/
-│           │   ├── TeacherF_reconciled.docx
-│           │   └── ... (more interviews)
-│           └── GCSE History (2017)-specification-Standard.docx
+│       │   ├── GCSE Planning Framework History Unit 1 Section B Option 1.docx
+│       │   ├── Madden (2007) History for CCEA GCSE Revision Guide - Chapter 3 (Peace, War and Neutrality).docx
+│       │   ├── Madden (2009) History for CCEA GCSE Second Edition - Chapter 2 (Peace, War and Neutrality) (1).docx
+│       │   ├── Madden (2011) ccea revision guide chp 2 peace war neutrality.docx
+│       │   ├── Madden and McBride History for CCEA GCSE Chapter 2.docx
+│       │   ├── option1_combined all.docx
+│       │   ├── TeacherC_reconciled.docx
+│       │   ├── TeacherD_reconciled.docx
+│       │   ├── TeacherE_reconciled.docx
+│       │   ├── TeacherH_reconciled.docx
+│       │   ├── TeacherL_reconciled.docx
+│       │   ├── TeacherN_reconciled.docx
+│       │   ├── TeacherO_reconciled.docx
+│       │   ├── TeacherP_reconciled.docx
+│       │   ├── TeacherQ_reconciled.docx
+│       │   └── Updated Johnston&Johnston no textboxes.docx
+│       └── option2/
+│           ├── Doherty (2001) Northern Ireland since c.1960 .docx
+│           ├── GCSE Planning Framework History Unit 1 Section B Option 2.docx
+│           ├── Madden (2007) History for CCEA GCSE Revision Guide - Chapter 4 (Changing Relationships) (2).docx
+│           ├── Madden (2009) History for CCEA GCSE Second Edition - Chapter 3 (Changing Relationships).docx
+│           ├── Madden (2011) CCEA revision guide Chp 3. Changing Relationships.docx
+│           ├── Madden and McBride History for CCEA GCSE Chapter 3.docx
+│           ├── option2_combined all.docx
+│           ├── TeacherA_reconciled.docx
+│           ├── TeacherB_reconciled.docx
+│           ├── TeacherG_reconciled.docx
+│           ├── TeacherJ_reconciled.docx
+│           ├── TeacherK_reconciled.docx
+│           ├── TeacherM_reconciled.docx
+│           └── Updated Doherty (2001) no textboxes.docx
 ├── outputs/
-│   └── processed_text_data.csv
+│   ├── processed_text_data.csv
+│   ├── cleaned_text_data.csv
+│   └── analysis_results/
+│       ├── models/
+│       ├── raw/
+│       ├── no_interview/
+│       ├── reduce_outlier/
+│       ├── all_visuals/
+│       ├── option1_sentiment_analysis_fixed/
+│       └── option2_sentiment_analysis_fixed/
 ```
 - `option2/`: All Option2 perspective documents (textbooks, teacher interviews, etc.)
 - `option1/`: All Option1 perspective documents (textbooks, teacher interviews, etc.)
@@ -150,42 +192,3 @@ OPENAI_API_KEY=your-api-key-here
    - If raw fetching fails, use OpenAI to generate knowledge-based summaries
    - Focus on Northern Ireland education and history relevance
    - Provide summaries based on AI's training data about the domain
-
-### Testing (test file currently ignored)
-
-Run the URL processing test:
-
-```bash
-python test_url_processing.py
-```
-
-### Output Format
-
-The processed data CSV now includes two content tracking columns:
-
-- `has_url_content`: Indicates whether content includes fetched web resources
-  - `True`: Content includes fetched web resources from URLs found in the document
-  - `False`: Content is from the original document only
-
-- `has_ai_summary`: Indicates whether content includes AI-generated summaries
-  - `True`: Content includes AI-generated summaries (knowledge-based)
-  - `False`: Content is from raw URL fetching or original document only
-
-### Content Labels
-
-The system uses clear labels to identify content sources:
-- `[AI-GENERATED SUMMARY FROM KNOWLEDGE BASE]`: AI summary based on training data
-- `--- URL Content {i}: {url} ---`: Raw live web content
-- `--- AI SUMMARY {i}: {url} ---`: AI-generated summary
-
-### Content Flag Combinations
-
-The output CSV includes two content tracking columns that work together:
-
-| `has_url_content` | `has_ai_summary` | Content Type | Description |
-|-------------------|------------------|--------------|-------------|
-| `False` | `False` | Original document content only | Pure text from the source document, no URL content |
-| `True` | `False` | Raw URL content | Successfully fetched live web content from URLs |
-| `True` | `True` | AI-generated URL content | AI summaries generated when raw URL fetching failed |
-
-Note: When `has_ai_summary=True`, `has_url_content` is always `True`.

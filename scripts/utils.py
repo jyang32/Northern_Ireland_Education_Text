@@ -244,9 +244,22 @@ def chunk_text(text: str, chunk_size: int = 1000, overlap: int = 100) -> List[st
             if last_space > chunk_size * 0.5:  # If space is in second half of chunk
                 chunk = chunk[:last_space]
                 end = start + last_space
+            else:
+                # If we still can't find a good word boundary, look for any space
+                # This prevents splitting words in the middle
+                any_space = chunk.rfind(' ')
+                if any_space > 0:  # Any space found
+                    chunk = chunk[:any_space]
+                    end = start + any_space
+                # If no spaces at all, we'll have to split mid-word (rare case)
         
         chunks.append(chunk.strip())
-        start = end - overlap
+        
+        # Ensure we always advance to prevent infinite loops
+        next_start = end - overlap
+        if next_start <= start:
+            next_start = start + 1  # Force advancement
+        start = next_start
     
     return chunks
 
