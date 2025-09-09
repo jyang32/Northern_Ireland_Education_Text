@@ -38,7 +38,7 @@ def main():
         'CATHOLIC_DIR': CATHOLIC_DIR,
         'PROTESTANT_DIR': PROTESTANT_DIR,
         'BOTH_DIR': BOTH_DIR,
-        'FETCH_URLS': True,
+        'FETCH_URLS': False,
         'MAX_URL_CHARS': 8000,
         'USE_OPENAI_FALLBACK': False,
         'OPENAI_MODEL': 'gpt-4o-mini',
