@@ -1,174 +1,174 @@
-2025-09-09 09:44:57,939 - __main__ - INFO - Starting Option2/Option1 text processing pipeline
-2025-09-09 09:44:57,939 - __main__ - INFO - Processing all data files...
-2025-09-09 09:44:57,940 - scripts.file_reader - INFO - Found file: Madden (2011) CCEA revision guide Chp 3. Changing Relationships.docx
-2025-09-09 09:44:57,940 - scripts.file_reader - INFO - Processing file: Madden (2011) CCEA revision guide Chp 3. Changing Relationships.docx
-2025-09-09 09:44:58,022 - scripts.file_reader - WARNING - First attempt failed for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2/Madden (2011) CCEA revision guide Chp 3. Changing Relationships.docx: "no relationship of type 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument' in collection"
-2025-09-09 09:44:58,225 - scripts.file_reader - INFO - Successfully read large file /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2/Madden (2011) CCEA revision guide Chp 3. Changing Relationships.docx with direct XML parsing
-2025-09-09 09:44:58,238 - scripts.file_reader - INFO - Chunked Madden (2011) CCEA revision guide Chp 3. Changing Relationships.docx into 77 chunks
-2025-09-09 09:44:58,238 - scripts.file_reader - INFO - Found file: TeacherJ_reconciled.docx
-2025-09-09 09:44:58,238 - scripts.file_reader - INFO - Processing file: TeacherJ_reconciled.docx
-2025-09-09 09:44:58,295 - scripts.file_reader - INFO - Chunked TeacherJ_reconciled.docx into 76 chunks
-2025-09-09 09:44:58,295 - scripts.file_reader - INFO - Found file: TeacherM_reconciled.docx
-2025-09-09 09:44:58,296 - scripts.file_reader - INFO - Processing file: TeacherM_reconciled.docx
-2025-09-09 09:44:58,432 - scripts.file_reader - INFO - Chunked TeacherM_reconciled.docx into 37 chunks
-2025-09-09 09:44:58,432 - scripts.file_reader - INFO - Found file: Madden (2009) History for CCEA GCSE Second Edition - Chapter 3 (Changing Relationships).docx
-2025-09-09 09:44:58,432 - scripts.file_reader - INFO - Processing file: Madden (2009) History for CCEA GCSE Second Edition - Chapter 3 (Changing Relationships).docx
-2025-09-09 09:44:58,585 - scripts.file_reader - WARNING - First attempt failed for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2/Madden (2009) History for CCEA GCSE Second Edition - Chapter 3 (Changing Relationships).docx: "no relationship of type 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument' in collection"
-2025-09-09 09:44:58,970 - scripts.file_reader - INFO - Successfully read large file /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2/Madden (2009) History for CCEA GCSE Second Edition - Chapter 3 (Changing Relationships).docx with direct XML parsing
-2025-09-09 09:44:58,995 - scripts.file_reader - INFO - Chunked Madden (2009) History for CCEA GCSE Second Edition - Chapter 3 (Changing Relationships).docx into 174 chunks
-2025-09-09 09:44:58,995 - scripts.file_reader - INFO - Found file: Madden and McBride History for CCEA GCSE Chapter 3.docx
-2025-09-09 09:44:58,995 - scripts.file_reader - INFO - Processing file: Madden and McBride History for CCEA GCSE Chapter 3.docx
-2025-09-09 09:44:59,430 - scripts.file_reader - INFO - Chunked Madden and McBride History for CCEA GCSE Chapter 3.docx into 153 chunks
-2025-09-09 09:44:59,430 - scripts.file_reader - INFO - Found file: TeacherB_reconciled.docx
-2025-09-09 09:44:59,431 - scripts.file_reader - INFO - Processing file: TeacherB_reconciled.docx
-2025-09-09 09:44:59,494 - scripts.file_reader - INFO - Chunked TeacherB_reconciled.docx into 35 chunks
-2025-09-09 09:44:59,494 - scripts.file_reader - INFO - Found file: Doherty (2001) Northern Ireland since c.1960 .docx
-2025-09-09 09:44:59,494 - scripts.file_reader - INFO - Processing file: Doherty (2001) Northern Ireland since c.1960 .docx
-2025-09-09 09:44:59,599 - scripts.file_reader - INFO - Chunked Doherty (2001) Northern Ireland since c.1960 .docx into 3 chunks
-2025-09-09 09:44:59,599 - scripts.file_reader - INFO - Found file: GCSE Planning Framework History Unit 1 Section B Option 2.docx
-2025-09-09 09:44:59,599 - scripts.file_reader - INFO - Processing file: GCSE Planning Framework History Unit 1 Section B Option 2.docx
-2025-09-09 09:44:59,701 - scripts.file_reader - INFO - Chunked GCSE Planning Framework History Unit 1 Section B Option 2.docx into 69 chunks
-2025-09-09 09:44:59,702 - scripts.file_reader - INFO - Found file: TeacherK_reconciled.docx
-2025-09-09 09:44:59,702 - scripts.file_reader - INFO - Processing file: TeacherK_reconciled.docx
-2025-09-09 09:44:59,825 - scripts.file_reader - INFO - Chunked TeacherK_reconciled.docx into 70 chunks
-2025-09-09 09:44:59,826 - scripts.file_reader - INFO - Found file: option2_combined all.docx
-2025-09-09 09:44:59,826 - scripts.file_reader - INFO - Processing file: option2_combined all.docx
-2025-09-09 09:45:02,218 - scripts.file_reader - WARNING - First attempt failed for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2/option2_combined all.docx: Resource limit exceeded: Buffer size limit exceeded, try XML_PARSE_HUGE
+2025-09-12 10:52:59,413 - __main__ - INFO - Starting Option2/Option1 text processing pipeline
+2025-09-12 10:52:59,413 - __main__ - INFO - Processing all data files...
+2025-09-12 10:52:59,414 - scripts.file_reader - INFO - Found file: Madden (2011) CCEA revision guide Chp 3. Changing Relationships.docx
+2025-09-12 10:52:59,414 - scripts.file_reader - INFO - Processing file: Madden (2011) CCEA revision guide Chp 3. Changing Relationships.docx
+2025-09-12 10:52:59,497 - scripts.file_reader - WARNING - First attempt failed for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2/Madden (2011) CCEA revision guide Chp 3. Changing Relationships.docx: "no relationship of type 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument' in collection"
+2025-09-12 10:52:59,740 - scripts.file_reader - INFO - Successfully read large file /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2/Madden (2011) CCEA revision guide Chp 3. Changing Relationships.docx with direct XML parsing
+2025-09-12 10:52:59,753 - scripts.file_reader - INFO - Chunked Madden (2011) CCEA revision guide Chp 3. Changing Relationships.docx into 77 chunks
+2025-09-12 10:52:59,754 - scripts.file_reader - INFO - Found file: TeacherJ_reconciled.docx
+2025-09-12 10:52:59,754 - scripts.file_reader - INFO - Processing file: TeacherJ_reconciled.docx
+2025-09-12 10:52:59,812 - scripts.file_reader - INFO - Chunked TeacherJ_reconciled.docx into 76 chunks
+2025-09-12 10:52:59,812 - scripts.file_reader - INFO - Found file: TeacherM_reconciled.docx
+2025-09-12 10:52:59,812 - scripts.file_reader - INFO - Processing file: TeacherM_reconciled.docx
+2025-09-12 10:52:59,946 - scripts.file_reader - INFO - Chunked TeacherM_reconciled.docx into 37 chunks
+2025-09-12 10:52:59,947 - scripts.file_reader - INFO - Found file: Madden (2009) History for CCEA GCSE Second Edition - Chapter 3 (Changing Relationships).docx
+2025-09-12 10:52:59,947 - scripts.file_reader - INFO - Processing file: Madden (2009) History for CCEA GCSE Second Edition - Chapter 3 (Changing Relationships).docx
+2025-09-12 10:53:00,110 - scripts.file_reader - WARNING - First attempt failed for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2/Madden (2009) History for CCEA GCSE Second Edition - Chapter 3 (Changing Relationships).docx: "no relationship of type 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument' in collection"
+2025-09-12 10:53:00,566 - scripts.file_reader - INFO - Successfully read large file /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2/Madden (2009) History for CCEA GCSE Second Edition - Chapter 3 (Changing Relationships).docx with direct XML parsing
+2025-09-12 10:53:00,592 - scripts.file_reader - INFO - Chunked Madden (2009) History for CCEA GCSE Second Edition - Chapter 3 (Changing Relationships).docx into 174 chunks
+2025-09-12 10:53:00,593 - scripts.file_reader - INFO - Found file: Madden and McBride History for CCEA GCSE Chapter 3.docx
+2025-09-12 10:53:00,593 - scripts.file_reader - INFO - Processing file: Madden and McBride History for CCEA GCSE Chapter 3.docx
+2025-09-12 10:53:01,032 - scripts.file_reader - INFO - Chunked Madden and McBride History for CCEA GCSE Chapter 3.docx into 153 chunks
+2025-09-12 10:53:01,033 - scripts.file_reader - INFO - Found file: TeacherB_reconciled.docx
+2025-09-12 10:53:01,033 - scripts.file_reader - INFO - Processing file: TeacherB_reconciled.docx
+2025-09-12 10:53:01,096 - scripts.file_reader - INFO - Chunked TeacherB_reconciled.docx into 35 chunks
+2025-09-12 10:53:01,096 - scripts.file_reader - INFO - Found file: Doherty (2001) Northern Ireland since c.1960 .docx
+2025-09-12 10:53:01,096 - scripts.file_reader - INFO - Processing file: Doherty (2001) Northern Ireland since c.1960 .docx
+2025-09-12 10:53:01,204 - scripts.file_reader - INFO - Chunked Doherty (2001) Northern Ireland since c.1960 .docx into 3 chunks
+2025-09-12 10:53:01,205 - scripts.file_reader - INFO - Found file: GCSE Planning Framework History Unit 1 Section B Option 2.docx
+2025-09-12 10:53:01,205 - scripts.file_reader - INFO - Processing file: GCSE Planning Framework History Unit 1 Section B Option 2.docx
+2025-09-12 10:53:01,311 - scripts.file_reader - INFO - Chunked GCSE Planning Framework History Unit 1 Section B Option 2.docx into 69 chunks
+2025-09-12 10:53:01,312 - scripts.file_reader - INFO - Found file: TeacherK_reconciled.docx
+2025-09-12 10:53:01,312 - scripts.file_reader - INFO - Processing file: TeacherK_reconciled.docx
+2025-09-12 10:53:01,443 - scripts.file_reader - INFO - Chunked TeacherK_reconciled.docx into 70 chunks
+2025-09-12 10:53:01,444 - scripts.file_reader - INFO - Found file: option2_combined all.docx
+2025-09-12 10:53:01,444 - scripts.file_reader - INFO - Processing file: option2_combined all.docx
+2025-09-12 10:53:04,068 - scripts.file_reader - WARNING - First attempt failed for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2/option2_combined all.docx: Resource limit exceeded: Buffer size limit exceeded, try XML_PARSE_HUGE
 , line 2, column 183423436 (<string>, line 2)
-2025-09-09 09:45:05,906 - scripts.file_reader - INFO - Successfully read large file /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2/option2_combined all.docx with direct XML parsing
-2025-09-09 09:45:06,068 - scripts.file_reader - INFO - Chunked option2_combined all.docx into 1836 chunks
-2025-09-09 09:45:06,068 - scripts.file_reader - INFO - Found file: TeacherA_reconciled.docx
-2025-09-09 09:45:06,068 - scripts.file_reader - INFO - Processing file: TeacherA_reconciled.docx
-2025-09-09 09:45:06,126 - scripts.file_reader - INFO - Chunked TeacherA_reconciled.docx into 40 chunks
-2025-09-09 09:45:06,127 - scripts.file_reader - INFO - Found file: Madden (2007) History for CCEA GCSE Revision Guide - Chapter 4 (Changing Relationships) (2).docx
-2025-09-09 09:45:06,127 - scripts.file_reader - INFO - Processing file: Madden (2007) History for CCEA GCSE Revision Guide - Chapter 4 (Changing Relationships) (2).docx
-2025-09-09 09:45:06,170 - scripts.file_reader - WARNING - First attempt failed for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2/Madden (2007) History for CCEA GCSE Revision Guide - Chapter 4 (Changing Relationships) (2).docx: "no relationship of type 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument' in collection"
-2025-09-09 09:45:06,226 - scripts.file_reader - INFO - Successfully read large file /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2/Madden (2007) History for CCEA GCSE Revision Guide - Chapter 4 (Changing Relationships) (2).docx with direct XML parsing
-2025-09-09 09:45:06,233 - scripts.file_reader - INFO - Chunked Madden (2007) History for CCEA GCSE Revision Guide - Chapter 4 (Changing Relationships) (2).docx into 87 chunks
-2025-09-09 09:45:06,233 - scripts.file_reader - INFO - Found file: Updated Doherty (2001) no textboxes.docx
-2025-09-09 09:45:06,233 - scripts.file_reader - INFO - Processing file: Updated Doherty (2001) no textboxes.docx
-2025-09-09 09:45:06,389 - scripts.file_reader - INFO - Chunked Updated Doherty (2001) no textboxes.docx into 81 chunks
-2025-09-09 09:45:06,389 - scripts.file_reader - INFO - Found file: TeacherG_reconciled.docx
-2025-09-09 09:45:06,389 - scripts.file_reader - INFO - Processing file: TeacherG_reconciled.docx
-2025-09-09 09:45:06,466 - scripts.file_reader - INFO - Chunked TeacherG_reconciled.docx into 61 chunks
-2025-09-09 09:45:06,466 - scripts.file_reader - INFO - Successfully processed 14 files: ['Madden (2011) CCEA revision guide Chp 3. Changing Relationships.docx', 'TeacherJ_reconciled.docx', 'TeacherM_reconciled.docx', 'Madden (2009) History for CCEA GCSE Second Edition - Chapter 3 (Changing Relationships).docx', 'Madden and McBride History for CCEA GCSE Chapter 3.docx', 'TeacherB_reconciled.docx', 'Doherty (2001) Northern Ireland since c.1960 .docx', 'GCSE Planning Framework History Unit 1 Section B Option 2.docx', 'TeacherK_reconciled.docx', 'option2_combined all.docx', 'TeacherA_reconciled.docx', 'Madden (2007) History for CCEA GCSE Revision Guide - Chapter 4 (Changing Relationships) (2).docx', 'Updated Doherty (2001) no textboxes.docx', 'TeacherG_reconciled.docx']
-2025-09-09 09:45:06,466 - scripts.file_reader - INFO - Processed 2799 records from /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2
-2025-09-09 09:45:06,467 - scripts.file_reader - INFO - File type breakdown for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2: {'textbook': 575, 'interview': 319, 'policy': 69, 'combined': 1836}
-2025-09-09 09:45:06,467 - scripts.file_reader - INFO - Found file: TeacherE_reconciled.docx
-2025-09-09 09:45:06,467 - scripts.file_reader - INFO - Processing file: TeacherE_reconciled.docx
-2025-09-09 09:45:06,529 - scripts.file_reader - INFO - Chunked TeacherE_reconciled.docx into 44 chunks
-2025-09-09 09:45:06,529 - scripts.file_reader - INFO - Found file: TeacherP_reconciled.docx
-2025-09-09 09:45:06,529 - scripts.file_reader - INFO - Processing file: TeacherP_reconciled.docx
-2025-09-09 09:45:06,696 - scripts.file_reader - INFO - Chunked TeacherP_reconciled.docx into 45 chunks
-2025-09-09 09:45:06,696 - scripts.file_reader - INFO - Found file: Madden and McBride History for CCEA GCSE Chapter 2.docx
-2025-09-09 09:45:06,696 - scripts.file_reader - INFO - Processing file: Madden and McBride History for CCEA GCSE Chapter 2.docx
-2025-09-09 09:45:06,925 - scripts.file_reader - INFO - Chunked Madden and McBride History for CCEA GCSE Chapter 2.docx into 129 chunks
-2025-09-09 09:45:06,926 - scripts.file_reader - INFO - Found file: TeacherL_reconciled.docx
-2025-09-09 09:45:06,926 - scripts.file_reader - INFO - Processing file: TeacherL_reconciled.docx
-2025-09-09 09:45:07,032 - scripts.file_reader - INFO - Chunked TeacherL_reconciled.docx into 72 chunks
-2025-09-09 09:45:07,032 - scripts.file_reader - INFO - Found file: Updated Johnston&Johnston no textboxes.docx
-2025-09-09 09:45:07,032 - scripts.file_reader - INFO - Processing file: Updated Johnston&Johnston no textboxes.docx
-2025-09-09 09:45:07,307 - scripts.file_reader - INFO - Chunked Updated Johnston&Johnston no textboxes.docx into 134 chunks
-2025-09-09 09:45:07,307 - scripts.file_reader - INFO - Found file: TeacherC_reconciled.docx
-2025-09-09 09:45:07,307 - scripts.file_reader - INFO - Processing file: TeacherC_reconciled.docx
-2025-09-09 09:45:07,359 - scripts.file_reader - INFO - Found file: TeacherD_reconciled.docx
-2025-09-09 09:45:07,359 - scripts.file_reader - INFO - Processing file: TeacherD_reconciled.docx
-2025-09-09 09:45:07,423 - scripts.file_reader - INFO - Chunked TeacherD_reconciled.docx into 42 chunks
-2025-09-09 09:45:07,423 - scripts.file_reader - INFO - Found file: TeacherQ_reconciled.docx
-2025-09-09 09:45:07,423 - scripts.file_reader - INFO - Processing file: TeacherQ_reconciled.docx
-2025-09-09 09:45:07,529 - scripts.file_reader - INFO - Chunked TeacherQ_reconciled.docx into 38 chunks
-2025-09-09 09:45:07,529 - scripts.file_reader - INFO - Found file: TeacherN_reconciled.docx
-2025-09-09 09:45:07,529 - scripts.file_reader - INFO - Processing file: TeacherN_reconciled.docx
-2025-09-09 09:45:07,699 - scripts.file_reader - INFO - Chunked TeacherN_reconciled.docx into 5 chunks
-2025-09-09 09:45:07,699 - scripts.file_reader - INFO - Found file: GCSE Planning Framework History Unit 1 Section B Option 1.docx
-2025-09-09 09:45:07,699 - scripts.file_reader - INFO - Processing file: GCSE Planning Framework History Unit 1 Section B Option 1.docx
-2025-09-09 09:45:07,769 - scripts.file_reader - INFO - Chunked GCSE Planning Framework History Unit 1 Section B Option 1.docx into 54 chunks
-2025-09-09 09:45:07,770 - scripts.file_reader - INFO - Found file: Madden (2011) ccea revision guide chp 2 peace war neutrality.docx
-2025-09-09 09:45:07,770 - scripts.file_reader - INFO - Processing file: Madden (2011) ccea revision guide chp 2 peace war neutrality.docx
-2025-09-09 09:45:07,836 - scripts.file_reader - WARNING - First attempt failed for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option1/Madden (2011) ccea revision guide chp 2 peace war neutrality.docx: "no relationship of type 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument' in collection"
-2025-09-09 09:45:08,015 - scripts.file_reader - INFO - Successfully read large file /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option1/Madden (2011) ccea revision guide chp 2 peace war neutrality.docx with direct XML parsing
-2025-09-09 09:45:08,025 - scripts.file_reader - INFO - Chunked Madden (2011) ccea revision guide chp 2 peace war neutrality.docx into 75 chunks
-2025-09-09 09:45:08,025 - scripts.file_reader - INFO - Found file: Madden (2007) History for CCEA GCSE Revision Guide - Chapter 3 (Peace, War and Neutrality).docx
-2025-09-09 09:45:08,026 - scripts.file_reader - INFO - Processing file: Madden (2007) History for CCEA GCSE Revision Guide - Chapter 3 (Peace, War and Neutrality).docx
-2025-09-09 09:45:08,107 - scripts.file_reader - WARNING - First attempt failed for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option1/Madden (2007) History for CCEA GCSE Revision Guide - Chapter 3 (Peace, War and Neutrality).docx: "no relationship of type 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument' in collection"
-2025-09-09 09:45:08,197 - scripts.file_reader - INFO - Successfully read large file /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option1/Madden (2007) History for CCEA GCSE Revision Guide - Chapter 3 (Peace, War and Neutrality).docx with direct XML parsing
-2025-09-09 09:45:08,203 - scripts.file_reader - INFO - Chunked Madden (2007) History for CCEA GCSE Revision Guide - Chapter 3 (Peace, War and Neutrality).docx into 79 chunks
-2025-09-09 09:45:08,203 - scripts.file_reader - INFO - Found file: TeacherH_reconciled.docx
-2025-09-09 09:45:08,203 - scripts.file_reader - INFO - Processing file: TeacherH_reconciled.docx
-2025-09-09 09:45:08,350 - scripts.file_reader - INFO - Chunked TeacherH_reconciled.docx into 40 chunks
-2025-09-09 09:45:08,350 - scripts.file_reader - INFO - Found file: TeacherO_reconciled.docx
-2025-09-09 09:45:08,351 - scripts.file_reader - INFO - Processing file: TeacherO_reconciled.docx
-2025-09-09 09:45:08,425 - scripts.file_reader - INFO - Chunked TeacherO_reconciled.docx into 39 chunks
-2025-09-09 09:45:08,425 - scripts.file_reader - INFO - Found file: option1_combined all.docx
-2025-09-09 09:45:08,425 - scripts.file_reader - INFO - Processing file: option1_combined all.docx
-2025-09-09 09:45:09,716 - scripts.file_reader - INFO - Chunked option1_combined all.docx into 807 chunks
-2025-09-09 09:45:09,716 - scripts.file_reader - INFO - Found file: Madden (2009) History for CCEA GCSE Second Edition - Chapter 2 (Peace, War and Neutrality) (1).docx
-2025-09-09 09:45:09,717 - scripts.file_reader - INFO - Processing file: Madden (2009) History for CCEA GCSE Second Edition - Chapter 2 (Peace, War and Neutrality) (1).docx
-2025-09-09 09:45:09,859 - scripts.file_reader - WARNING - First attempt failed for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option1/Madden (2009) History for CCEA GCSE Second Edition - Chapter 2 (Peace, War and Neutrality) (1).docx: "no relationship of type 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument' in collection"
-2025-09-09 09:45:10,286 - scripts.file_reader - INFO - Successfully read large file /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option1/Madden (2009) History for CCEA GCSE Second Edition - Chapter 2 (Peace, War and Neutrality) (1).docx with direct XML parsing
-2025-09-09 09:45:10,308 - scripts.file_reader - INFO - Chunked Madden (2009) History for CCEA GCSE Second Edition - Chapter 2 (Peace, War and Neutrality) (1).docx into 156 chunks
-2025-09-09 09:45:10,308 - scripts.file_reader - INFO - Successfully processed 16 files: ['TeacherE_reconciled.docx', 'TeacherP_reconciled.docx', 'Madden and McBride History for CCEA GCSE Chapter 2.docx', 'TeacherL_reconciled.docx', 'Updated Johnston&Johnston no textboxes.docx', 'TeacherC_reconciled.docx', 'TeacherD_reconciled.docx', 'TeacherQ_reconciled.docx', 'TeacherN_reconciled.docx', 'GCSE Planning Framework History Unit 1 Section B Option 1.docx', 'Madden (2011) ccea revision guide chp 2 peace war neutrality.docx', 'Madden (2007) History for CCEA GCSE Revision Guide - Chapter 3 (Peace, War and Neutrality).docx', 'TeacherH_reconciled.docx', 'TeacherO_reconciled.docx', 'option1_combined all.docx', 'Madden (2009) History for CCEA GCSE Second Edition - Chapter 2 (Peace, War and Neutrality) (1).docx']
-2025-09-09 09:45:10,308 - scripts.file_reader - INFO - Processed 1760 records from /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option1
-2025-09-09 09:45:10,308 - scripts.file_reader - INFO - File type breakdown for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option1: {'interview': 326, 'textbook': 573, 'policy': 54, 'combined': 807}
-2025-09-09 09:45:10,309 - scripts.file_reader - INFO - Found file: GCSE History (2017)-specification-Standard.docx
-2025-09-09 09:45:10,309 - scripts.file_reader - INFO - Processing file: GCSE History (2017)-specification-Standard.docx
-2025-09-09 09:45:10,378 - scripts.file_reader - INFO - Chunked GCSE History (2017)-specification-Standard.docx into 56 chunks
-2025-09-09 09:45:10,378 - scripts.file_reader - INFO - Found file: TeacherF_reconciled.docx
-2025-09-09 09:45:10,378 - scripts.file_reader - INFO - Processing file: TeacherF_reconciled.docx
-2025-09-09 09:45:10,449 - scripts.file_reader - INFO - Chunked TeacherF_reconciled.docx into 57 chunks
-2025-09-09 09:45:10,449 - scripts.file_reader - INFO - Found file: TeacherI_reconciled.docx
-2025-09-09 09:45:10,449 - scripts.file_reader - INFO - Processing file: TeacherI_reconciled.docx
-2025-09-09 09:45:10,575 - scripts.file_reader - INFO - Chunked TeacherI_reconciled.docx into 32 chunks
-2025-09-09 09:45:10,575 - scripts.file_reader - INFO - Successfully processed 3 files: ['GCSE History (2017)-specification-Standard.docx', 'TeacherF_reconciled.docx', 'TeacherI_reconciled.docx']
-2025-09-09 09:45:10,575 - scripts.file_reader - INFO - Processed 145 records from /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/both
-2025-09-09 09:45:10,575 - scripts.file_reader - INFO - File type breakdown for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/both: {'policy': 56, 'interview': 89}
-2025-09-09 09:45:10,584 - scripts.file_reader - INFO - Created DataFrame with 4704 records
-2025-09-09 09:45:10,588 - scripts.file_reader - INFO - File types: {'combined': 2643, 'textbook': 1148, 'interview': 734, 'policy': 179}
-2025-09-09 09:45:10,588 - scripts.file_reader - INFO - Religious groups: {'option2': 2799, 'option1': 1760, 'both': 145}
-2025-09-09 09:45:10,590 - __main__ - INFO - Loading metadata and matching to processed data...
-2025-09-09 09:45:10,593 - scripts.utils - INFO - Loaded metadata with 20 records
-2025-09-09 09:45:11,248 - scripts.utils - INFO - Matched publication-policy-year for 1327 out of 4704 records
-2025-09-09 09:45:11,248 - __main__ - INFO - Metadata matching completed
-2025-09-09 09:45:11,248 - __main__ - INFO - Saving processed data...
-2025-09-09 09:45:11,367 - __main__ - INFO - Processed data saved to /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/outputs/processed_text_data.csv
-2025-09-09 09:45:11,367 - __main__ - INFO - 
+2025-09-12 10:53:08,217 - scripts.file_reader - INFO - Successfully read large file /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2/option2_combined all.docx with direct XML parsing
+2025-09-12 10:53:08,392 - scripts.file_reader - INFO - Chunked option2_combined all.docx into 1836 chunks
+2025-09-12 10:53:08,392 - scripts.file_reader - INFO - Found file: TeacherA_reconciled.docx
+2025-09-12 10:53:08,392 - scripts.file_reader - INFO - Processing file: TeacherA_reconciled.docx
+2025-09-12 10:53:08,452 - scripts.file_reader - INFO - Chunked TeacherA_reconciled.docx into 40 chunks
+2025-09-12 10:53:08,452 - scripts.file_reader - INFO - Found file: Madden (2007) History for CCEA GCSE Revision Guide - Chapter 4 (Changing Relationships) (2).docx
+2025-09-12 10:53:08,452 - scripts.file_reader - INFO - Processing file: Madden (2007) History for CCEA GCSE Revision Guide - Chapter 4 (Changing Relationships) (2).docx
+2025-09-12 10:53:08,499 - scripts.file_reader - WARNING - First attempt failed for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2/Madden (2007) History for CCEA GCSE Revision Guide - Chapter 4 (Changing Relationships) (2).docx: "no relationship of type 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument' in collection"
+2025-09-12 10:53:08,562 - scripts.file_reader - INFO - Successfully read large file /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2/Madden (2007) History for CCEA GCSE Revision Guide - Chapter 4 (Changing Relationships) (2).docx with direct XML parsing
+2025-09-12 10:53:08,570 - scripts.file_reader - INFO - Chunked Madden (2007) History for CCEA GCSE Revision Guide - Chapter 4 (Changing Relationships) (2).docx into 87 chunks
+2025-09-12 10:53:08,571 - scripts.file_reader - INFO - Found file: Updated Doherty (2001) no textboxes.docx
+2025-09-12 10:53:08,571 - scripts.file_reader - INFO - Processing file: Updated Doherty (2001) no textboxes.docx
+2025-09-12 10:53:08,726 - scripts.file_reader - INFO - Chunked Updated Doherty (2001) no textboxes.docx into 81 chunks
+2025-09-12 10:53:08,727 - scripts.file_reader - INFO - Found file: TeacherG_reconciled.docx
+2025-09-12 10:53:08,727 - scripts.file_reader - INFO - Processing file: TeacherG_reconciled.docx
+2025-09-12 10:53:08,807 - scripts.file_reader - INFO - Chunked TeacherG_reconciled.docx into 61 chunks
+2025-09-12 10:53:08,807 - scripts.file_reader - INFO - Successfully processed 14 files: ['Madden (2011) CCEA revision guide Chp 3. Changing Relationships.docx', 'TeacherJ_reconciled.docx', 'TeacherM_reconciled.docx', 'Madden (2009) History for CCEA GCSE Second Edition - Chapter 3 (Changing Relationships).docx', 'Madden and McBride History for CCEA GCSE Chapter 3.docx', 'TeacherB_reconciled.docx', 'Doherty (2001) Northern Ireland since c.1960 .docx', 'GCSE Planning Framework History Unit 1 Section B Option 2.docx', 'TeacherK_reconciled.docx', 'option2_combined all.docx', 'TeacherA_reconciled.docx', 'Madden (2007) History for CCEA GCSE Revision Guide - Chapter 4 (Changing Relationships) (2).docx', 'Updated Doherty (2001) no textboxes.docx', 'TeacherG_reconciled.docx']
+2025-09-12 10:53:08,807 - scripts.file_reader - INFO - Processed 2799 records from /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2
+2025-09-12 10:53:08,807 - scripts.file_reader - INFO - File type breakdown for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option2: {'textbook': 575, 'interview': 319, 'policy': 69, 'combined': 1836}
+2025-09-12 10:53:08,808 - scripts.file_reader - INFO - Found file: TeacherE_reconciled.docx
+2025-09-12 10:53:08,808 - scripts.file_reader - INFO - Processing file: TeacherE_reconciled.docx
+2025-09-12 10:53:08,872 - scripts.file_reader - INFO - Chunked TeacherE_reconciled.docx into 44 chunks
+2025-09-12 10:53:08,873 - scripts.file_reader - INFO - Found file: TeacherP_reconciled.docx
+2025-09-12 10:53:08,873 - scripts.file_reader - INFO - Processing file: TeacherP_reconciled.docx
+2025-09-12 10:53:09,045 - scripts.file_reader - INFO - Chunked TeacherP_reconciled.docx into 45 chunks
+2025-09-12 10:53:09,045 - scripts.file_reader - INFO - Found file: Madden and McBride History for CCEA GCSE Chapter 2.docx
+2025-09-12 10:53:09,045 - scripts.file_reader - INFO - Processing file: Madden and McBride History for CCEA GCSE Chapter 2.docx
+2025-09-12 10:53:09,285 - scripts.file_reader - INFO - Chunked Madden and McBride History for CCEA GCSE Chapter 2.docx into 129 chunks
+2025-09-12 10:53:09,286 - scripts.file_reader - INFO - Found file: TeacherL_reconciled.docx
+2025-09-12 10:53:09,286 - scripts.file_reader - INFO - Processing file: TeacherL_reconciled.docx
+2025-09-12 10:53:09,397 - scripts.file_reader - INFO - Chunked TeacherL_reconciled.docx into 72 chunks
+2025-09-12 10:53:09,397 - scripts.file_reader - INFO - Found file: Updated Johnston&Johnston no textboxes.docx
+2025-09-12 10:53:09,397 - scripts.file_reader - INFO - Processing file: Updated Johnston&Johnston no textboxes.docx
+2025-09-12 10:53:09,682 - scripts.file_reader - INFO - Chunked Updated Johnston&Johnston no textboxes.docx into 134 chunks
+2025-09-12 10:53:09,682 - scripts.file_reader - INFO - Found file: TeacherC_reconciled.docx
+2025-09-12 10:53:09,682 - scripts.file_reader - INFO - Processing file: TeacherC_reconciled.docx
+2025-09-12 10:53:09,745 - scripts.file_reader - INFO - Found file: TeacherD_reconciled.docx
+2025-09-12 10:53:09,746 - scripts.file_reader - INFO - Processing file: TeacherD_reconciled.docx
+2025-09-12 10:53:09,824 - scripts.file_reader - INFO - Chunked TeacherD_reconciled.docx into 42 chunks
+2025-09-12 10:53:09,825 - scripts.file_reader - INFO - Found file: TeacherQ_reconciled.docx
+2025-09-12 10:53:09,825 - scripts.file_reader - INFO - Processing file: TeacherQ_reconciled.docx
+2025-09-12 10:53:09,941 - scripts.file_reader - INFO - Chunked TeacherQ_reconciled.docx into 38 chunks
+2025-09-12 10:53:09,941 - scripts.file_reader - INFO - Found file: TeacherN_reconciled.docx
+2025-09-12 10:53:09,941 - scripts.file_reader - INFO - Processing file: TeacherN_reconciled.docx
+2025-09-12 10:53:10,119 - scripts.file_reader - INFO - Chunked TeacherN_reconciled.docx into 5 chunks
+2025-09-12 10:53:10,119 - scripts.file_reader - INFO - Found file: GCSE Planning Framework History Unit 1 Section B Option 1.docx
+2025-09-12 10:53:10,119 - scripts.file_reader - INFO - Processing file: GCSE Planning Framework History Unit 1 Section B Option 1.docx
+2025-09-12 10:53:10,194 - scripts.file_reader - INFO - Chunked GCSE Planning Framework History Unit 1 Section B Option 1.docx into 54 chunks
+2025-09-12 10:53:10,195 - scripts.file_reader - INFO - Found file: Madden (2011) ccea revision guide chp 2 peace war neutrality.docx
+2025-09-12 10:53:10,195 - scripts.file_reader - INFO - Processing file: Madden (2011) ccea revision guide chp 2 peace war neutrality.docx
+2025-09-12 10:53:10,271 - scripts.file_reader - WARNING - First attempt failed for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option1/Madden (2011) ccea revision guide chp 2 peace war neutrality.docx: "no relationship of type 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument' in collection"
+2025-09-12 10:53:10,482 - scripts.file_reader - INFO - Successfully read large file /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option1/Madden (2011) ccea revision guide chp 2 peace war neutrality.docx with direct XML parsing
+2025-09-12 10:53:10,494 - scripts.file_reader - INFO - Chunked Madden (2011) ccea revision guide chp 2 peace war neutrality.docx into 75 chunks
+2025-09-12 10:53:10,494 - scripts.file_reader - INFO - Found file: Madden (2007) History for CCEA GCSE Revision Guide - Chapter 3 (Peace, War and Neutrality).docx
+2025-09-12 10:53:10,494 - scripts.file_reader - INFO - Processing file: Madden (2007) History for CCEA GCSE Revision Guide - Chapter 3 (Peace, War and Neutrality).docx
+2025-09-12 10:53:10,536 - scripts.file_reader - WARNING - First attempt failed for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option1/Madden (2007) History for CCEA GCSE Revision Guide - Chapter 3 (Peace, War and Neutrality).docx: "no relationship of type 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument' in collection"
+2025-09-12 10:53:10,641 - scripts.file_reader - INFO - Successfully read large file /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option1/Madden (2007) History for CCEA GCSE Revision Guide - Chapter 3 (Peace, War and Neutrality).docx with direct XML parsing
+2025-09-12 10:53:10,648 - scripts.file_reader - INFO - Chunked Madden (2007) History for CCEA GCSE Revision Guide - Chapter 3 (Peace, War and Neutrality).docx into 79 chunks
+2025-09-12 10:53:10,648 - scripts.file_reader - INFO - Found file: TeacherH_reconciled.docx
+2025-09-12 10:53:10,649 - scripts.file_reader - INFO - Processing file: TeacherH_reconciled.docx
+2025-09-12 10:53:10,803 - scripts.file_reader - INFO - Chunked TeacherH_reconciled.docx into 40 chunks
+2025-09-12 10:53:10,803 - scripts.file_reader - INFO - Found file: TeacherO_reconciled.docx
+2025-09-12 10:53:10,803 - scripts.file_reader - INFO - Processing file: TeacherO_reconciled.docx
+2025-09-12 10:53:10,879 - scripts.file_reader - INFO - Chunked TeacherO_reconciled.docx into 39 chunks
+2025-09-12 10:53:10,879 - scripts.file_reader - INFO - Found file: option1_combined all.docx
+2025-09-12 10:53:10,879 - scripts.file_reader - INFO - Processing file: option1_combined all.docx
+2025-09-12 10:53:12,245 - scripts.file_reader - INFO - Chunked option1_combined all.docx into 807 chunks
+2025-09-12 10:53:12,245 - scripts.file_reader - INFO - Found file: Madden (2009) History for CCEA GCSE Second Edition - Chapter 2 (Peace, War and Neutrality) (1).docx
+2025-09-12 10:53:12,245 - scripts.file_reader - INFO - Processing file: Madden (2009) History for CCEA GCSE Second Edition - Chapter 2 (Peace, War and Neutrality) (1).docx
+2025-09-12 10:53:12,398 - scripts.file_reader - WARNING - First attempt failed for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option1/Madden (2009) History for CCEA GCSE Second Edition - Chapter 2 (Peace, War and Neutrality) (1).docx: "no relationship of type 'http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument' in collection"
+2025-09-12 10:53:12,892 - scripts.file_reader - INFO - Successfully read large file /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option1/Madden (2009) History for CCEA GCSE Second Edition - Chapter 2 (Peace, War and Neutrality) (1).docx with direct XML parsing
+2025-09-12 10:53:12,917 - scripts.file_reader - INFO - Chunked Madden (2009) History for CCEA GCSE Second Edition - Chapter 2 (Peace, War and Neutrality) (1).docx into 156 chunks
+2025-09-12 10:53:12,917 - scripts.file_reader - INFO - Successfully processed 16 files: ['TeacherE_reconciled.docx', 'TeacherP_reconciled.docx', 'Madden and McBride History for CCEA GCSE Chapter 2.docx', 'TeacherL_reconciled.docx', 'Updated Johnston&Johnston no textboxes.docx', 'TeacherC_reconciled.docx', 'TeacherD_reconciled.docx', 'TeacherQ_reconciled.docx', 'TeacherN_reconciled.docx', 'GCSE Planning Framework History Unit 1 Section B Option 1.docx', 'Madden (2011) ccea revision guide chp 2 peace war neutrality.docx', 'Madden (2007) History for CCEA GCSE Revision Guide - Chapter 3 (Peace, War and Neutrality).docx', 'TeacherH_reconciled.docx', 'TeacherO_reconciled.docx', 'option1_combined all.docx', 'Madden (2009) History for CCEA GCSE Second Edition - Chapter 2 (Peace, War and Neutrality) (1).docx']
+2025-09-12 10:53:12,917 - scripts.file_reader - INFO - Processed 1760 records from /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option1
+2025-09-12 10:53:12,918 - scripts.file_reader - INFO - File type breakdown for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/option1: {'interview': 326, 'textbook': 573, 'policy': 54, 'combined': 807}
+2025-09-12 10:53:12,919 - scripts.file_reader - INFO - Found file: GCSE History (2017)-specification-Standard.docx
+2025-09-12 10:53:12,919 - scripts.file_reader - INFO - Processing file: GCSE History (2017)-specification-Standard.docx
+2025-09-12 10:53:12,992 - scripts.file_reader - INFO - Chunked GCSE History (2017)-specification-Standard.docx into 56 chunks
+2025-09-12 10:53:12,993 - scripts.file_reader - INFO - Found file: TeacherF_reconciled.docx
+2025-09-12 10:53:12,993 - scripts.file_reader - INFO - Processing file: TeacherF_reconciled.docx
+2025-09-12 10:53:13,066 - scripts.file_reader - INFO - Chunked TeacherF_reconciled.docx into 57 chunks
+2025-09-12 10:53:13,067 - scripts.file_reader - INFO - Found file: TeacherI_reconciled.docx
+2025-09-12 10:53:13,067 - scripts.file_reader - INFO - Processing file: TeacherI_reconciled.docx
+2025-09-12 10:53:13,196 - scripts.file_reader - INFO - Chunked TeacherI_reconciled.docx into 32 chunks
+2025-09-12 10:53:13,196 - scripts.file_reader - INFO - Successfully processed 3 files: ['GCSE History (2017)-specification-Standard.docx', 'TeacherF_reconciled.docx', 'TeacherI_reconciled.docx']
+2025-09-12 10:53:13,196 - scripts.file_reader - INFO - Processed 145 records from /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/both
+2025-09-12 10:53:13,196 - scripts.file_reader - INFO - File type breakdown for /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/data/strand1/both: {'policy': 56, 'interview': 89}
+2025-09-12 10:53:13,206 - scripts.file_reader - INFO - Created DataFrame with 4704 records
+2025-09-12 10:53:13,211 - scripts.file_reader - INFO - File types: {'combined': 2643, 'textbook': 1148, 'interview': 734, 'policy': 179}
+2025-09-12 10:53:13,212 - scripts.file_reader - INFO - Religious groups: {'option2': 2799, 'option1': 1760, 'both': 145}
+2025-09-12 10:53:13,213 - __main__ - INFO - Loading metadata and matching to processed data...
+2025-09-12 10:53:13,217 - scripts.utils - INFO - Loaded metadata with 20 records
+2025-09-12 10:53:13,918 - scripts.utils - INFO - Matched publication-policy-year for 1327 out of 4704 records
+2025-09-12 10:53:13,918 - __main__ - INFO - Metadata matching completed
+2025-09-12 10:53:13,918 - __main__ - INFO - Saving processed data...
+2025-09-12 10:53:14,043 - __main__ - INFO - Processed data saved to /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/outputs/processed_text_data.csv
+2025-09-12 10:53:14,043 - __main__ - INFO - 
 === DATA PROCESSING SUMMARY ===
-2025-09-09 09:45:11,367 - __main__ - INFO - Total records: 4704
-2025-09-09 09:45:11,368 - __main__ - INFO - Unique files: 33
-2025-09-09 09:45:11,369 - __main__ - INFO - File types: {'combined': 2643, 'textbook': 1148, 'interview': 734, 'policy': 179}
-2025-09-09 09:45:11,369 - __main__ - INFO - Religious groups: {'option2': 2799, 'option1': 1760, 'both': 145}
-2025-09-09 09:45:11,370 - __main__ - INFO - Records with publication-policy-year: 1327 out of 4704
-2025-09-09 09:45:11,370 - __main__ - INFO - Publication years found: [1997.0, 2001.0, 2004.0, 2007.0, 2009.0, 2011.0, 2017.0, 2019.0]
-2025-09-09 09:45:11,370 - __main__ - INFO - Records with AI-generated summaries: 0 out of 4704
-2025-09-09 09:45:11,370 - __main__ - INFO - 
+2025-09-12 10:53:14,043 - __main__ - INFO - Total records: 4704
+2025-09-12 10:53:14,045 - __main__ - INFO - Unique files: 33
+2025-09-12 10:53:14,045 - __main__ - INFO - File types: {'combined': 2643, 'textbook': 1148, 'interview': 734, 'policy': 179}
+2025-09-12 10:53:14,045 - __main__ - INFO - Religious groups: {'option2': 2799, 'option1': 1760, 'both': 145}
+2025-09-12 10:53:14,046 - __main__ - INFO - Records with publication-policy-year: 1327 out of 4704
+2025-09-12 10:53:14,047 - __main__ - INFO - Publication years found: [1997.0, 2001.0, 2004.0, 2007.0, 2009.0, 2011.0, 2017.0, 2019.0]
+2025-09-12 10:53:14,047 - __main__ - INFO - Records with AI-generated summaries: 0 out of 4704
+2025-09-12 10:53:14,047 - __main__ - INFO - 
 ==================================================
-2025-09-09 09:45:11,370 - __main__ - INFO - DATA PROCESSING COMPLETE
-2025-09-09 09:45:11,370 - __main__ - INFO - ==================================================
-2025-09-09 09:45:11,372 - __main__ - INFO - 
+2025-09-12 10:53:14,047 - __main__ - INFO - DATA PROCESSING COMPLETE
+2025-09-12 10:53:14,047 - __main__ - INFO - ==================================================
+2025-09-12 10:53:14,049 - __main__ - INFO - 
 OPTION2:
-2025-09-09 09:45:11,372 - __main__ - INFO -   Files: 14
-2025-09-09 09:45:11,372 - __main__ - INFO -   Chunks: 2799
-2025-09-09 09:45:11,373 - __main__ - INFO -   File types: {'combined': 1836, 'textbook': 575, 'interview': 319, 'policy': 69}
-2025-09-09 09:45:11,373 - __main__ - INFO -   Avg content length: 918
-2025-09-09 09:45:11,373 - __main__ - INFO - 
+2025-09-12 10:53:14,049 - __main__ - INFO -   Files: 14
+2025-09-12 10:53:14,049 - __main__ - INFO -   Chunks: 2799
+2025-09-12 10:53:14,049 - __main__ - INFO -   File types: {'combined': 1836, 'textbook': 575, 'interview': 319, 'policy': 69}
+2025-09-12 10:53:14,050 - __main__ - INFO -   Avg content length: 918
+2025-09-12 10:53:14,050 - __main__ - INFO - 
 OPTION1:
-2025-09-09 09:45:11,374 - __main__ - INFO -   Files: 16
-2025-09-09 09:45:11,374 - __main__ - INFO -   Chunks: 1760
-2025-09-09 09:45:11,374 - __main__ - INFO -   File types: {'combined': 807, 'textbook': 573, 'interview': 326, 'policy': 54}
-2025-09-09 09:45:11,374 - __main__ - INFO -   Avg content length: 920
-2025-09-09 09:45:11,374 - __main__ - INFO - 
+2025-09-12 10:53:14,051 - __main__ - INFO -   Files: 16
+2025-09-12 10:53:14,051 - __main__ - INFO -   Chunks: 1760
+2025-09-12 10:53:14,051 - __main__ - INFO -   File types: {'combined': 807, 'textbook': 573, 'interview': 326, 'policy': 54}
+2025-09-12 10:53:14,051 - __main__ - INFO -   Avg content length: 920
+2025-09-12 10:53:14,051 - __main__ - INFO - 
 BOTH:
-2025-09-09 09:45:11,374 - __main__ - INFO -   Files: 3
-2025-09-09 09:45:11,374 - __main__ - INFO -   Chunks: 145
-2025-09-09 09:45:11,374 - __main__ - INFO -   File types: {'interview': 89, 'policy': 56}
-2025-09-09 09:45:11,375 - __main__ - INFO -   Avg content length: 925
-2025-09-09 09:45:11,375 - __main__ - INFO - 
+2025-09-12 10:53:14,051 - __main__ - INFO -   Files: 3
+2025-09-12 10:53:14,051 - __main__ - INFO -   Chunks: 145
+2025-09-12 10:53:14,052 - __main__ - INFO -   File types: {'interview': 89, 'policy': 56}
+2025-09-12 10:53:14,052 - __main__ - INFO -   Avg content length: 925
+2025-09-12 10:53:14,052 - __main__ - INFO - 
 FILE TYPE BREAKDOWN:
-2025-09-09 09:45:11,375 - __main__ - INFO -   textbook: 1148 chunks from 11 files
-2025-09-09 09:45:11,376 - __main__ - INFO -   interview: 734 chunks from 17 files
-2025-09-09 09:45:11,376 - __main__ - INFO -   policy: 179 chunks from 3 files
-2025-09-09 09:45:11,376 - __main__ - INFO -   combined: 2643 chunks from 2 files
-2025-09-09 09:45:11,377 - __main__ - INFO - 
+2025-09-12 10:53:14,052 - __main__ - INFO -   textbook: 1148 chunks from 11 files
+2025-09-12 10:53:14,053 - __main__ - INFO -   interview: 734 chunks from 17 files
+2025-09-12 10:53:14,053 - __main__ - INFO -   policy: 179 chunks from 3 files
+2025-09-12 10:53:14,054 - __main__ - INFO -   combined: 2643 chunks from 2 files
+2025-09-12 10:53:14,054 - __main__ - INFO - 
 === PROCESSING COMPLETE ===
-2025-09-09 09:45:11,377 - __main__ - INFO - Processed data saved to: /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/outputs/processed_text_data.csv
-2025-09-09 09:45:11,377 - __main__ - INFO - Ready for analysis in the next stage.
+2025-09-12 10:53:14,054 - __main__ - INFO - Processed data saved to: /Users/junheyang/Desktop/working_docs/Northern_Ireland_Education_Text/outputs/processed_text_data.csv
+2025-09-12 10:53:14,054 - __main__ - INFO - Ready for analysis in the next stage.
