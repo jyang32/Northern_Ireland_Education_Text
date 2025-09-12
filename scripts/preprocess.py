@@ -65,6 +65,7 @@ def preprocess_text(text):
     text = text.replace('world war 2', 'second world war')
     text = text.replace('wwii', 'second world war')
     text = text.replace('ww2', 'second world war')
+    text = text.replace('first world war','world war one')
     
     # Replace "sinn fein" with "sinn féin" (proper Irish spelling)
     text = text.replace('sinn fein', 'sinn féin')
