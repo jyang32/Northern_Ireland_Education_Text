@@ -23,3 +23,12 @@ debug_file_reading.py
 
 # student work
 CS_student_work/*
+
+# virtual environment
+.venv/
+
+# Neo4j credentials
+Neo4j-*.txt
+
+# notebook autosaves
+.ipynb_checkpoints/
